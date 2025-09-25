@@ -158,9 +158,98 @@ body {
     font-size: 16px;
 }
 
+/* Web3 Background Elements */
+.web3-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-element {
+    position: absolute;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.03;
+    animation: bgFloat 20s ease-in-out infinite;
+}
+
+.bg-element-1 {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bg-element-2 {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.bg-element-3 {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    left: 5%;
+    animation-delay: 6s;
+}
+
+.bg-element-4 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 9s;
+}
+
+.bg-element-5 {
+    width: 40px;
+    height: 40px;
+    top: 40%;
+    right: 30%;
+    animation-delay: 12s;
+}
+
+.bg-element-6 {
+    width: 90px;
+    height: 90px;
+    bottom: 40%;
+    left: 20%;
+    animation-delay: 15s;
+}
+
+@keyframes bgFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.03;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg) scale(1.1);
+        opacity: 0.05;
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg) scale(0.9);
+        opacity: 0.04;
+    }
+    75% {
+        transform: translateY(-30px) rotate(270deg) scale(1.2);
+        opacity: 0.06;
+    }
+}
+
 /* Main Content */
 .main {
     margin-top: var(--header-height);
+    position: relative;
+    z-index: 1;
 }
 
 /* Hero Section */
@@ -386,22 +475,145 @@ body {
     animation-delay: 4s;
 }
 
+.element-6 {
+    width: 6px;
+    height: 6px;
+    top: 70%;
+    left: 5%;
+    animation-delay: 5s;
+}
+
+.element-7 {
+    width: 10px;
+    height: 10px;
+    bottom: 10%;
+    right: 30%;
+    animation-delay: 6s;
+}
+
+.element-8 {
+    width: 8px;
+    height: 8px;
+    top: 40%;
+    left: 30%;
+    animation-delay: 7s;
+}
+
+/* Web3 Connection Lines */
+.web3-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.connection-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--magenta), transparent);
+    height: 1px;
+    opacity: 0.3;
+    animation: connectionFlow 4s ease-in-out infinite;
+}
+
+.line-1 {
+    width: 60px;
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.line-2 {
+    width: 40px;
+    top: 60%;
+    right: 25%;
+    animation-delay: 1.5s;
+}
+
+.line-3 {
+    width: 50px;
+    bottom: 30%;
+    left: 40%;
+    animation-delay: 3s;
+}
+
+@keyframes connectionFlow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scaleX(0.5);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scaleX(1);
+    }
+}
+
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px) rotate(0deg);
+        transform: translateY(0px) rotate(0deg) scale(1);
         opacity: 0.1;
     }
     25% {
-        transform: translateY(-10px) rotate(90deg);
+        transform: translateY(-10px) rotate(90deg) scale(1.1);
         opacity: 0.2;
     }
     50% {
-        transform: translateY(-5px) rotate(180deg);
+        transform: translateY(-5px) rotate(180deg) scale(0.9);
         opacity: 0.15;
     }
     75% {
-        transform: translateY(-15px) rotate(270deg);
+        transform: translateY(-15px) rotate(270deg) scale(1.2);
         opacity: 0.25;
+    }
+}
+
+/* Additional Web3 floating elements */
+.element-1::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--magenta);
+    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.element-2::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--magenta);
+    border-radius: 50%;
+    top: -1px;
+    right: -1px;
+    animation: pulse 2s ease-in-out infinite 0.5s;
+}
+
+.element-3::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--magenta);
+    border-radius: 50%;
+    bottom: -1.5px;
+    left: -1.5px;
+    animation: pulse 2s ease-in-out infinite 1s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.5);
     }
 }
 
