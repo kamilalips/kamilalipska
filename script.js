@@ -1,4 +1,4 @@
-// Smooth scrolling and navigation
+// Enhanced interactive website with engaging animations
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80; // Account for fixed nav
+                const offsetTop = targetElement.offsetTop - 80;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navbar background on scroll
+    // Enhanced navbar scroll effects
     const nav = document.querySelector('.nav');
     let lastScrollY = window.scrollY;
     
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollY = currentScrollY;
     });
     
-    // Intersection Observer for animations
+    // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -62,18 +62,27 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
+                
+                // Special animations for different elements
+                if (entry.target.classList.contains('work-card')) {
+                    entry.target.style.animationDelay = `${Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.1}s`;
+                }
+                
+                if (entry.target.classList.contains('highlight-item')) {
+                    entry.target.style.animationDelay = `${Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.2}s`;
+                }
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.service-card, .testimonial-card, .stack-category, .highlight-card');
+    const animateElements = document.querySelectorAll('.work-card, .highlight-item, .visual-card, .stack-visual');
     animateElements.forEach(el => {
         observer.observe(el);
     });
     
-    // Parallax effect for hero background elements
-    const bgElements = document.querySelectorAll('.bg-element');
+    // Enhanced parallax effects
+    const bgElements = document.querySelectorAll('.bg-gradient, .shape');
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const rate = scrolled * -0.5;
@@ -84,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Typing animation for hero subtitle
-    const subtitleLines = document.querySelectorAll('.subtitle-line');
+    // Typing animation for hero title
+    const titleLines = document.querySelectorAll('.title-line');
     let currentLine = 0;
     
     function typeWriter(element, text, speed = 50) {
@@ -105,63 +114,97 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start typing animation after a delay
     setTimeout(() => {
-        subtitleLines.forEach((line, index) => {
+        titleLines.forEach((line, index) => {
             const originalText = line.textContent;
             setTimeout(() => {
                 typeWriter(line, originalText, 30);
-            }, index * 200);
+            }, index * 300);
         });
     }, 1000);
     
-    // Service card hover effects
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
+    // Enhanced card hover effects
+    const workCards = document.querySelectorAll('.work-card');
+    workCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.transform = this.classList.contains('featured') 
+                ? 'scale(1.05) translateY(-8px)' 
+                : 'translateY(-8px) scale(1.02)';
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            this.style.transform = this.classList.contains('featured') 
+                ? 'scale(1.05)' 
+                : 'translateY(0) scale(1)';
         });
     });
     
-    // Stack item hover effects
-    const stackItems = document.querySelectorAll('.stack-item');
-    stackItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px) scale(1.05)';
+    // Stack tools interaction
+    const stackTools = document.querySelectorAll('.tool');
+    stackTools.forEach(tool => {
+        tool.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.2)';
+            this.style.zIndex = '10';
+            
+            // Add tooltip
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = this.dataset.tool;
+            tooltip.style.cssText = `
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--gray-800);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                font-size: 0.875rem;
+                white-space: nowrap;
+                z-index: 1000;
+                margin-bottom: 0.5rem;
+            `;
+            
+            this.appendChild(tooltip);
         });
         
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+        tool.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.zIndex = '1';
+            
+            const tooltip = this.querySelector('.tooltip');
+            if (tooltip) {
+                tooltip.remove();
+            }
         });
     });
     
-    // Testimonial card rotation
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    testimonialCards.forEach((card, index) => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = `translateY(-8px) rotate(${index % 2 === 0 ? '1deg' : '-1deg'})`;
-        });
+    // Testimonial slider
+    const testimonials = document.querySelectorAll('.testimonial');
+    const navDots = document.querySelectorAll('.nav-dot');
+    let currentTestimonial = 0;
+    
+    function showTestimonial(index) {
+        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+        navDots.forEach(dot => dot.classList.remove('active'));
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) rotate(0deg)';
+        testimonials[index].classList.add('active');
+        navDots[index].classList.add('active');
+    }
+    
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentTestimonial = index;
+            showTestimonial(index);
         });
     });
     
-    // Contact method hover effects
-    const contactMethods = document.querySelectorAll('.contact-method');
-    contactMethods.forEach(method => {
-        method.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px) scale(1.02)';
-        });
-        
-        method.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
+    // Auto-rotate testimonials
+    setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }, 5000);
     
-    // Button ripple effect
+    // Enhanced button interactions
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -193,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         width: 0%;
         height: 3px;
-        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        background: linear-gradient(135deg, var(--primary), var(--accent));
         z-index: 9999;
         transition: width 0.1s ease;
     `;
@@ -206,91 +249,96 @@ document.addEventListener('DOMContentLoaded', function() {
         progressBar.style.width = scrolled + '%';
     });
     
-    // Lazy loading for images
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    // Enhanced contact method interactions
+    const contactMethods = document.querySelectorAll('.contact-method');
+    contactMethods.forEach(method => {
+        method.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px) scale(1.02)';
+            this.style.boxShadow = 'var(--shadow-lg)';
+        });
+        
+        method.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = 'var(--shadow-sm)';
+        });
+    });
+    
+    // Floating elements animation
+    const floatingCards = document.querySelectorAll('.floating-card');
+    floatingCards.forEach((card, index) => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.1)';
+            this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.zIndex = '1';
+        });
+    });
+    
+    // Stats counter animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
+                const target = entry.target;
+                const finalValue = target.textContent;
+                const isPercentage = finalValue.includes('%');
+                const isCurrency = finalValue.includes('€') || finalValue.includes('$');
+                const numericValue = parseInt(finalValue.replace(/[^\d]/g, ''));
+                
+                let current = 0;
+                const increment = numericValue / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericValue) {
+                        current = numericValue;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue = Math.floor(current);
+                    if (isCurrency) {
+                        displayValue = '€' + displayValue + 'M+';
+                    } else if (isPercentage) {
+                        displayValue = displayValue + '%';
+                    } else {
+                        displayValue = displayValue + '+';
+                    }
+                    
+                    target.textContent = displayValue;
+                }, 30);
+                
+                statsObserver.unobserve(target);
             }
         });
     });
     
-    images.forEach(img => imageObserver.observe(img));
+    statNumbers.forEach(stat => {
+        statsObserver.observe(stat);
+    });
     
-    // Form validation and submission (if contact form is added later)
-    const contactForm = document.querySelector('#contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic form validation
-            const email = this.querySelector('input[type="email"]');
-            const message = this.querySelector('textarea');
-            
-            if (!email.value || !message.value) {
-                showNotification('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email.value)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Simulate form submission
-            showNotification('Thank you! Your message has been sent.', 'success');
-            this.reset();
+    // Enhanced highlight items
+    const highlightItems = document.querySelectorAll('.highlight-item');
+    highlightItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(10px)';
+            this.style.backgroundColor = 'var(--gray-50)';
+            this.style.borderRadius = 'var(--radius-lg)';
+            this.style.padding = 'var(--space-4)';
+            this.style.transition = 'var(--transition-fast)';
         });
-    }
-    
-    // Utility functions
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.textContent = message;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            color: white;
-            font-weight: 500;
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            ${type === 'success' ? 'background: var(--accent-color);' : ''}
-            ${type === 'error' ? 'background: #ef4444;' : ''}
-            ${type === 'info' ? 'background: var(--primary-color);' : ''}
-        `;
         
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
-    }
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+            this.style.backgroundColor = 'transparent';
+            this.style.padding = '0';
+        });
+    });
     
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            // Close mobile menu if open
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 navToggle.classList.remove('active');
@@ -313,7 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Apply debouncing to scroll events
     const debouncedScrollHandler = debounce(function() {
-        // Scroll-based animations and effects
         const scrolled = window.pageYOffset;
         const parallaxElements = document.querySelectorAll('.parallax');
         
@@ -325,6 +372,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 10);
     
     window.addEventListener('scroll', debouncedScrollHandler);
+    
+    // Cursor trail effect
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-trail';
+    cursor.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    document.body.appendChild(cursor);
+    
+    document.addEventListener('mousemove', function(e) {
+        cursor.style.left = e.clientX - 10 + 'px';
+        cursor.style.top = e.clientY - 10 + 'px';
+        cursor.style.opacity = '0.3';
+    });
+    
+    document.addEventListener('mouseleave', function() {
+        cursor.style.opacity = '0';
+    });
     
     // Initialize AOS (Animate On Scroll) alternative
     const initScrollAnimations = () => {
@@ -356,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
 });
 
-// Add CSS for animations
+// Add enhanced CSS for animations
 const style = document.createElement('style');
 style.textContent = `
     .animate-in {
@@ -399,6 +472,45 @@ style.textContent = `
         transition: all 0.3s ease;
     }
     
+    .work-card {
+        transition: all 0.3s ease;
+    }
+    
+    .work-card.animate-in {
+        animation: slideInUp 0.6s ease-out forwards;
+    }
+    
+    .highlight-item {
+        transition: all 0.3s ease;
+    }
+    
+    .highlight-item.animate-in {
+        animation: slideInLeft 0.6s ease-out forwards;
+    }
+    
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .floating-card {
+        transition: all 0.3s ease;
+    }
+    
+    .tool {
+        transition: all 0.3s ease;
+    }
+    
+    .contact-method {
+        transition: all 0.3s ease;
+    }
+    
     @media (max-width: 768px) {
         .nav-links {
             position: fixed;
@@ -428,6 +540,40 @@ style.textContent = `
         .nav-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
+        
+        .cursor-trail {
+            display: none;
+        }
+    }
+    
+    /* Enhanced hover effects */
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+    
+    .btn-secondary:hover {
+        transform: translateY(-1px);
+    }
+    
+    /* Smooth transitions for all interactive elements */
+    * {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* Loading states */
+    .loading {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+    
+    /* Focus states for accessibility */
+    .btn:focus,
+    .nav-link:focus,
+    .contact-method:focus,
+    .nav-dot:focus,
+    .tool:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
     }
 `;
 document.head.appendChild(style);
