@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const keyboardMap = {
         '1': 'home',
         '2': 'about',
-        '3': 'skills',
-        '4': 'work',
+        '3': 'systems',
+        '4': 'stack',
         '5': 'testimonials',
         '6': 'contact',
         '7': 'linkedin'
@@ -473,3 +473,125 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+    // Dynamic background effects for systematic thinking visualization
+    function createDynamicBackground() {
+        const bgContainer = document.querySelector('.dynamic-bg');
+        if (!bgContainer) return;
+
+        // Create floating elements that represent systematic thinking
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 6 + 2}px;
+                height: ${Math.random() * 6 + 2}px;
+                background: linear-gradient(45deg, #0070f3, #00d4ff);
+                border-radius: 50%;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                opacity: 0.1;
+                animation: float ${Math.random() * 20 + 10}s infinite linear;
+                animation-delay: ${Math.random() * 5}s;
+            `;
+            bgContainer.appendChild(element);
+        }
+
+        // Add connecting lines between elements to show systematic connections
+        setTimeout(() => {
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach((element, index) => {
+                if (index < elements.length - 1) {
+                    const line = document.createElement('div');
+                    line.className = 'connection-line';
+                    line.style.cssText = `
+                        position: absolute;
+                        height: 1px;
+                        background: linear-gradient(90deg, transparent, #0070f3, transparent);
+                        opacity: 0.05;
+                        animation: pulse 3s infinite;
+                        animation-delay: ${index * 0.2}s;
+                    `;
+                    bgContainer.appendChild(line);
+                }
+            });
+        }, 1000);
+    }
+
+    // Add CSS animations for dynamic elements
+    function addDynamicAnimations() {
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.1; }
+                90% { opacity: 0.1; }
+                100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            }
+            @keyframes pulse {
+                0%, 100% { opacity: 0.05; transform: scaleX(0.8); }
+                50% { opacity: 0.1; transform: scaleX(1.2); }
+            }
+            @keyframes systematicFlow {
+                0% { transform: translateX(-100px) scale(0.8); opacity: 0; }
+                50% { transform: translateX(0) scale(1); opacity: 1; }
+                100% { transform: translateX(100px) scale(0.8); opacity: 0; }
+            }
+            @keyframes dataFlow {
+                0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+                50% { opacity: 1; }
+                100% { transform: translateX(100%) skewX(-15deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Systematic thinking visual indicators
+    function addSystematicIndicators() {
+        // Add flow indicators to system items
+        document.querySelectorAll('.system-item').forEach((item, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = 'system-flow-indicator';
+            indicator.style.cssText = `
+                position: absolute;
+                top: 50%;
+                right: -20px;
+                width: 40px;
+                height: 2px;
+                background: linear-gradient(90deg, #0070f3, #00d4ff);
+                opacity: 0.3;
+                animation: systematicFlow 2s infinite;
+                animation-delay: ${index * 0.3}s;
+            `;
+            item.style.position = 'relative';
+            item.appendChild(indicator);
+        });
+
+        // Add data flow visualization to stack items
+        document.querySelectorAll('.stack-item').forEach((item, index) => {
+            item.addEventListener('mouseenter', () => {
+                const flow = document.createElement('div');
+                flow.className = 'data-flow';
+                flow.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(45deg, transparent, rgba(0,112,243,0.1), transparent);
+                    animation: dataFlow 1s ease-out;
+                    pointer-events: none;
+                `;
+                item.style.position = 'relative';
+                item.appendChild(flow);
+                
+                setTimeout(() => flow.remove(), 1000);
+            });
+        });
+    }
+
+    // Initialize dynamic effects
+    createDynamicBackground();
+    addDynamicAnimations();
+    addSystematicIndicators();
