@@ -1,0 +1,30 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="#ffffff" stroke="#e91e63" stroke-width="3"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="85" rx="40" ry="45" fill="#e91e63"/>
+  
+  <!-- Hair -->
+  <path d="M 60 70 Q 100 50 140 70 Q 135 85 130 90 Q 100 75 70 90 Q 65 85 60 70" fill="#e91e63"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="90" cy="80" rx="5" ry="8" fill="#ffffff"/>
+  <ellipse cx="110" cy="80" rx="5" ry="8" fill="#ffffff"/>
+  <circle cx="90" cy="80" r="3" fill="#e91e63"/>
+  <circle cx="110" cy="80" r="3" fill="#e91e63"/>
+  
+  <!-- Eyebrows -->
+  <path d="M 82 73 Q 90 70 98 73" stroke="#e91e63" stroke-width="2.5" fill="none"/>
+  <path d="M 102 73 Q 110 70 118 73" stroke="#e91e63" stroke-width="2.5" fill="none"/>
+  
+  <!-- Nose -->
+  <path d="M 100 90 Q 95 95 100 100 Q 105 95 100 90" stroke="#e91e63" stroke-width="2" fill="none"/>
+  
+  <!-- Mouth -->
+  <path d="M 90 105 Q 100 110 110 105" stroke="#e91e63" stroke-width="2.5" fill="none"/>
+  
+  <!-- Body -->
+  <rect x="85" y="130" width="30" height="40" fill="#e91e63"/>
+  <path d="M 70 170 Q 100 160 130 170 L 130 200 L 70 200 Z" fill="#e91e63"/>
+</svg>
