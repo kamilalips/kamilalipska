@@ -25,172 +25,186 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
                 <span class="logo-text">KL</span>
-            </div>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#contact" class="nav-link cta-link">Contact</a>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Available for new projects</span>
-                </div>
-                
-                <h1 class="hero-title">
-                    <span class="title-line">I'm Kamila</span>
-                    <span class="title-line highlight">Growth Architect</span>
-                    <span class="title-line">who builds systems</span>
-                    <span class="title-line">that actually work</span>
-                </h1>
-                
-                <p class="hero-description">
-                    15+ years turning marketing chaos into scalable growth engines. 
-                    I don't just optimize campaigns—I architect entire systems that 
-                    drive measurable results for Web3 & SaaS companies.
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">€2M+</span>
-                        <span class="stat-label">Revenue Generated</span>
-                    </div>
-                </div>
-                
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>Let's Build Something</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="#skills" class="btn btn-secondary">
-                        <span>See My Skills</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="photo-container">
-                    <div class="photo-placeholder">
-                        <div class="photo-icon">📸</div>
-                        <span>Your Photo Here</span>
-                    </div>
-                    <div class="photo-decoration"></div>
-                </div>
             </div>
         </div>
         
-        <!-- Background Elements -->
-        <div class="hero-bg">
-            <div class="bg-gradient"></div>
-        </div>
-    </section>
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-item active" data-page="home">
+                <div class="nav-icon">🏠</div>
+                <span class="nav-label">Home</span>
+                <span class="nav-shortcut">1</span>
+            </a>
+            
+            <a href="#about" class="nav-item" data-page="about">
+                <div class="nav-icon">👋</div>
+                <span class="nav-label">About</span>
+                <span class="nav-shortcut">2</span>
+            </a>
+            
+            <a href="#skills" class="nav-item" data-page="skills">
+                <div class="nav-icon">🛠️</div>
+                <span class="nav-label">Skills</span>
+                <span class="nav-shortcut">3</span>
+            </a>
+            
+            <a href="#work" class="nav-item" data-page="work">
+                <div class="nav-icon">💼</div>
+                <span class="nav-label">Work</span>
+                <span class="nav-shortcut">4</span>
+            </a>
+            
+            <a href="#testimonials" class="nav-item" data-page="testimonials">
+                <div class="nav-icon">💬</div>
+                <span class="nav-label">Testimonials</span>
+                <span class="nav-shortcut">5</span>
+            </a>
+            
+            <div class="nav-divider">Connect</div>
+            
+            <a href="#contact" class="nav-item" data-page="contact">
+                <div class="nav-icon">📧</div>
+                <span class="nav-label">Contact</span>
+                <span class="nav-shortcut">6</span>
+            </a>
+            
+            <a href="https://linkedin.com/in/kamilalipska" class="nav-item" target="_blank">
+                <div class="nav-icon">💼</div>
+                <span class="nav-label">LinkedIn</span>
+                <span class="nav-shortcut">7</span>
+            </a>
+        </nav>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <h2 class="section-title">
-                        <span class="title-accent">About</span>
-                        <span class="title-main">The Architect</span>
-                    </h2>
-                    
-                    <div class="about-text">
-                        <p class="lead">
-                            I'm not your typical marketer. I'm a <strong>systems thinker</strong> who sees 
-                            the bigger picture and builds infrastructure that scales.
-                        </p>
-                        
-                        <p>
-                            While others chase vanity metrics, I architect <strong>revenue-aligned systems</strong> 
-                            that turn fragmented tools into high-performing growth engines. From broken 
-                            attribution to chaotic data flows, I fix what's broken and build what's missing.
-                        </p>
-                        
-                        <p>
-                            Based in the EU, working globally with American tech companies who need 
-                            someone they don't have to micromanage. I thrive in complexity and 
-                            deliver results that matter.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="about-visual">
-                    <div class="visual-card">
-                        <div class="card-header">
-                            <div class="card-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <span class="card-title">Growth System Architecture</span>
-                        </div>
-                        <div class="card-content">
-                            <div class="system-flow">
-                                <div class="flow-item">
-                                    <div class="flow-icon">📊</div>
-                                    <span>Data Collection</span>
-                                </div>
-                                <div class="flow-arrow">→</div>
-                                <div class="flow-item">
-                                    <div class="flow-icon">🔄</div>
-                                    <span>Processing</span>
-                                </div>
-                                <div class="flow-arrow">→</div>
-                                <div class="flow-item">
-                                    <div class="flow-icon">🎯</div>
-                                    <span>Activation</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-accent">My</span>
-                    <span class="title-main">Skills & Tools</span>
-                </h2>
-                <p class="section-subtitle">
-                    The platforms I use to architect scalable growth systems. My real strength lies in how I connect them.
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="page-header">
+                <h1 class="page-title">Good morning</h1>
+                <p class="page-subtitle">
+                    I'm Kamila Lipska, a Growth Systems Architect who builds scalable marketing infrastructures for Web3 & SaaS companies.
                 </p>
             </div>
             
+            <div class="intro-cards">
+                <div class="intro-card">
+                    <p>Use keyboard shortcuts 1 → 7 to navigate between pages. Try pressing 2, 3, 4, then 1 to come back here.</p>
+                </div>
+                
+                <div class="intro-card">
+                    <p>I architect complete growth stacks that connect data, automation, and acquisition into one high-performing system.</p>
+                    <a href="#about">Learn more about my approach →</a>
+                </div>
+                
+                <div class="intro-card">
+                    <p>I'm fortunate to have worked with inspiring people and rockstar brands across Web3 and SaaS.</p>
+                    <a href="#testimonials">See what they have to say →</a>
+                </div>
+                
+                <div class="intro-card">
+                    <p>Ready to turn your growth challenges into scalable systems?</p>
+                    <a href="#contact">Let's discuss your project →</a>
+                </div>
+            </div>
+            
+            <div class="recent-updates">
+                <h2>Recent updates</h2>
+                <div class="updates-grid">
+                    <div class="update-item">
+                        <div class="update-date">2024</div>
+                        <div class="update-content">
+                            <h3>Launched Web3 Growth Systems</h3>
+                            <p>Specialized acquisition systems for crypto projects, from token adoption to developer community building.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-date">2024</div>
+                        <div class="update-content">
+                            <h3>Enhanced Attribution Models</h3>
+                            <p>Built multi-touch attribution systems that expose true ROI drivers and revenue-contributing journeys.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="update-item">
+                        <div class="update-date">2023</div>
+                        <div class="update-content">
+                            <h3>Scaled SaaS Growth Operations</h3>
+                            <p>Architected complete growth stacks for multiple SaaS companies, driving measurable revenue outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="page-header">
+                <h1 class="page-title">About</h1>
+                <p class="page-subtitle">Strategic depth meets technical execution</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">
+                        I'm not your typical marketer. I'm a <strong>systems thinker</strong> who sees 
+                        the bigger picture and builds infrastructure that scales.
+                    </p>
+                    
+                    <p>
+                        While others chase vanity metrics, I architect <strong>revenue-aligned systems</strong> 
+                        that turn fragmented tools into high-performing growth engines. From broken 
+                        attribution to chaotic data flows, I fix what's broken and build what's missing.
+                    </p>
+                    
+                    <p>
+                        Based in the EU, working globally with American tech companies who need 
+                        someone they don't have to micromanage. I thrive in complexity and 
+                        deliver results that matter.
+                    </p>
+                </div>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🎯</div>
+                        <div class="highlight-content">
+                            <h3>Strategic Depth</h3>
+                            <p>I architect entire growth stacks, not just campaigns</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">⚡</div>
+                        <div class="highlight-content">
+                            <h3>Technical Execution</h3>
+                            <p>I implement without friction, no hand-holding needed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">📈</div>
+                        <div class="highlight-content">
+                            <h3>Measurable Results</h3>
+                            <p>Everything I build drives revenue, not vanity metrics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Page -->
+        <section id="skills" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Skills & Tools</h1>
+                <p class="page-subtitle">The platforms I use to architect scalable growth systems</p>
+            </div>
+            
             <div class="skills-grid">
-                <!-- Analytics & Intelligence -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">📊</span>
@@ -223,7 +237,6 @@
                     </div>
                 </div>
                 
-                <!-- Data Infrastructure & Automation -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">🔧</span>
@@ -256,7 +269,6 @@
                     </div>
                 </div>
                 
-                <!-- Attribution & Visibility -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">🎯</span>
@@ -289,7 +301,6 @@
                     </div>
                 </div>
                 
-                <!-- Acquisition Channels -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">🚀</span>
@@ -322,7 +333,6 @@
                     </div>
                 </div>
                 
-                <!-- Growth Operations -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">⚡</span>
@@ -355,7 +365,6 @@
                     </div>
                 </div>
                 
-                <!-- Organic Growth & Visibility -->
                 <div class="skill-category">
                     <h3 class="category-title">
                         <span class="category-icon">🌱</span>
@@ -388,170 +397,145 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Work Section -->
-    <section id="work" class="work">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-accent">What I</span>
-                    <span class="title-main">Build</span>
-                </h2>
-                <p class="section-subtitle">
-                    Growth systems that turn chaos into revenue
-                </p>
+        <!-- Work Page -->
+        <section id="work" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Work</h1>
+                <p class="page-subtitle">Growth systems that turn chaos into revenue</p>
             </div>
             
             <div class="work-grid">
-                <div class="work-card featured">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🏗️</div>
                         <h3>Growth Infrastructure</h3>
+                        <span class="work-type">System Architecture</span>
                     </div>
                     <p>I architect complete growth stacks that connect data, automation, and acquisition into one high-performing system.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">Data Pipelines</span>
-                        <span class="feature-tag">Attribution Models</span>
-                        <span class="feature-tag">Automation Flows</span>
+                    <div class="work-tags">
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Attribution Models</span>
+                        <span class="tag">Automation Flows</span>
                     </div>
                 </div>
                 
-                <div class="work-card">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🎯</div>
                         <h3>Paid Acquisition</h3>
+                        <span class="work-type">Campaign Management</span>
                     </div>
                     <p>Performance-driven campaigns across Google, Meta, LinkedIn, and crypto-native platforms with advanced tracking.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">Multi-Platform</span>
-                        <span class="feature-tag">Crypto Ads</span>
-                        <span class="feature-tag">ROI Optimization</span>
+                    <div class="work-tags">
+                        <span class="tag">Multi-Platform</span>
+                        <span class="tag">Crypto Ads</span>
+                        <span class="tag">ROI Optimization</span>
                     </div>
                 </div>
                 
-                <div class="work-card">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🔍</div>
                         <h3>SEO & Organic</h3>
+                        <span class="work-type">Technical SEO</span>
                     </div>
                     <p>Technical SEO foundations, content systems, and structured data that drive sustainable, compounding growth.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">Technical SEO</span>
-                        <span class="feature-tag">Content Strategy</span>
-                        <span class="feature-tag">Schema Markup</span>
+                    <div class="work-tags">
+                        <span class="tag">Technical SEO</span>
+                        <span class="tag">Content Strategy</span>
+                        <span class="tag">Schema Markup</span>
                     </div>
                 </div>
                 
-                <div class="work-card">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🔄</div>
                         <h3>Lifecycle Automation</h3>
+                        <span class="work-type">CRM Integration</span>
                     </div>
                     <p>CRM-integrated automation that personalizes experiences, scores leads, and accelerates pipeline velocity.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">Lead Scoring</span>
-                        <span class="feature-tag">Behavioral Triggers</span>
-                        <span class="feature-tag">CRM Integration</span>
+                    <div class="work-tags">
+                        <span class="tag">Lead Scoring</span>
+                        <span class="tag">Behavioral Triggers</span>
+                        <span class="tag">CRM Integration</span>
                     </div>
                 </div>
                 
-                <div class="work-card">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🧪</div>
                         <h3>Conversion Optimization</h3>
+                        <span class="work-type">A/B Testing</span>
                     </div>
                     <p>A/B testing, heatmaps, and session recordings that turn behavioral data into measurable growth improvements.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">A/B Testing</span>
-                        <span class="feature-tag">UX Analysis</span>
-                        <span class="feature-tag">Funnel Optimization</span>
+                    <div class="work-tags">
+                        <span class="tag">A/B Testing</span>
+                        <span class="tag">UX Analysis</span>
+                        <span class="tag">Funnel Optimization</span>
                     </div>
                 </div>
                 
-                <div class="work-card">
+                <div class="work-item">
                     <div class="work-header">
-                        <div class="work-icon">🌐</div>
                         <h3>Web3 Growth</h3>
+                        <span class="work-type">Crypto Marketing</span>
                     </div>
                     <p>Specialized acquisition systems for crypto projects, from token adoption to developer community building.</p>
-                    <div class="work-features">
-                        <span class="feature-tag">Crypto Ads</span>
-                        <span class="feature-tag">Developer Acquisition</span>
-                        <span class="feature-tag">Community Growth</span>
+                    <div class="work-tags">
+                        <span class="tag">Crypto Ads</span>
+                        <span class="tag">Developer Acquisition</span>
+                        <span class="tag">Community Growth</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-accent">What</span>
-                    <span class="title-main">Clients Say</span>
-                </h2>
+        <!-- Testimonials Page -->
+        <section id="testimonials" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Testimonials</h1>
+                <p class="page-subtitle">What clients say about working with me</p>
             </div>
             
-            <div class="testimonials-slider">
-                <div class="testimonial active">
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
                     <div class="testimonial-content">
                         <p>"Kamila is one of the most exceptional individuals I've ever met. She's not only an online marketing professional but also easy going and fun person. What makes her stand out is her constant development and working ethic."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Karolina Skowron</h4>
-                            <span>Account Director, Pepperjam</span>
-                        </div>
+                        <h4>Karolina Skowron</h4>
+                        <span>Account Director, Pepperjam</span>
                     </div>
                 </div>
                 
-                <div class="testimonial">
+                <div class="testimonial-item">
                     <div class="testimonial-content">
                         <p>"Kamila is excellent and really lovely to work with. She pitched a clear and targeted strategy and picked up the paid media activity amazingly quickly. She was quick to offer a strategy for any new idea I threw at her."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Tim Ludlow</h4>
-                            <span>CEO, Beds on Board</span>
-                        </div>
+                        <h4>Tim Ludlow</h4>
+                        <span>CEO, Beds on Board</span>
                     </div>
                 </div>
                 
-                <div class="testimonial">
+                <div class="testimonial-item">
                     <div class="testimonial-content">
                         <p>"Working with Kamila has been great from the start. She works very independent and proactive which is exactly what we were looking for. We were able to outsource the online growth aspect fully to her."</p>
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Emily Garcia</h4>
-                            <span>Founder, Mapiac</span>
-                        </div>
+                        <h4>Emily Garcia</h4>
+                        <span>Founder, Mapiac</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial-nav">
-                <button class="nav-dot active" data-slide="0"></button>
-                <button class="nav-dot" data-slide="1"></button>
-                <button class="nav-dot" data-slide="2"></button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Contact</h1>
+                <p class="page-subtitle">Let's build something together</p>
+            </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2 class="contact-title">
-                        <span class="title-accent">Let's</span>
-                        <span class="title-main">Build Together</span>
-                    </h2>
-                    
                     <p class="contact-description">
                         Ready to turn your growth challenges into scalable systems? 
                         Let's discuss how I can help architect your next breakthrough.
@@ -577,30 +561,13 @@
                 </div>
                 
                 <div class="contact-cta">
-                    <a href="mailto:hello@kamilalipska.com" class="btn btn-primary btn-large">
-                        <span>Start a Project</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <a href="mailto:hello@kamilalipska.com" class="btn btn-primary">
+                        Start a Project
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">KL</span>
-                </div>
-                <div class="footer-text">
-                    <p>&copy; 2025 Kamila Lipska. Building growth systems that work.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
     <!-- Scripts -->
     <script src="script.js"></script>
