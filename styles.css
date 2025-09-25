@@ -201,6 +201,11 @@ body {
 .particle-8 { width: 9px; height: 9px; top: 55%; left: 70%; animation-delay: 14s; }
 .particle-9 { width: 13px; height: 13px; top: 75%; right: 30%; animation-delay: 16s; }
 .particle-10 { width: 5px; height: 5px; top: 25%; left: 45%; animation-delay: 18s; }
+.particle-11 { width: 9px; height: 9px; top: 45%; left: 80%; animation-delay: 20s; }
+.particle-12 { width: 7px; height: 7px; top: 65%; left: 15%; animation-delay: 22s; }
+.particle-13 { width: 11px; height: 11px; top: 85%; right: 25%; animation-delay: 24s; }
+.particle-14 { width: 6px; height: 6px; top: 35%; left: 35%; animation-delay: 26s; }
+.particle-15 { width: 13px; height: 13px; top: 55%; right: 45%; animation-delay: 28s; }
 
 @keyframes particleFloat {
     0%, 100% {
@@ -235,6 +240,9 @@ body {
 .line-3 { width: 120px; top: 60%; left: 30%; animation-delay: 4s; }
 .line-4 { width: 90px; top: 80%; right: 35%; animation-delay: 6s; }
 .line-5 { width: 70px; top: 30%; left: 50%; animation-delay: 8s; }
+.line-6 { width: 90px; top: 50%; right: 20%; animation-delay: 10s; }
+.line-7 { width: 60px; top: 70%; left: 40%; animation-delay: 12s; }
+.line-8 { width: 80px; top: 90%; right: 40%; animation-delay: 14s; }
 
 @keyframes lineFlow {
     0%, 100% {
@@ -291,6 +299,24 @@ body {
     animation-delay: 15s;
 }
 
+.shape-5 {
+    width: 28px;
+    height: 28px;
+    top: 60%;
+    right: 10%;
+    border-radius: 50%;
+    animation-delay: 20s;
+}
+
+.shape-6 {
+    width: 32px;
+    height: 32px;
+    top: 80%;
+    left: 60%;
+    transform: rotate(45deg);
+    animation-delay: 25s;
+}
+
 @keyframes shapeRotate {
     0% {
         transform: rotate(0deg) scale(1);
@@ -311,6 +337,38 @@ body {
     100% {
         transform: rotate(360deg) scale(1);
         opacity: 0.1;
+    }
+}
+
+/* Web3 Network Nodes */
+.network-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: nodePulse 4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+}
+
+.node-1 { top: 12%; left: 25%; animation-delay: 0s; }
+.node-2 { top: 28%; right: 30%; animation-delay: 0.8s; }
+.node-3 { top: 45%; left: 15%; animation-delay: 1.6s; }
+.node-4 { top: 62%; right: 20%; animation-delay: 2.4s; }
+.node-5 { top: 78%; left: 35%; animation-delay: 3.2s; }
+.node-6 { top: 35%; left: 65%; animation-delay: 4s; }
+
+@keyframes nodePulse {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.5);
+        box-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
     }
 }
 
@@ -512,7 +570,7 @@ body {
 }
 
 .web3-icon {
-    background: var(--magenta);
+    background: var(--foreground);
     color: var(--background);
 }
 
@@ -526,6 +584,13 @@ body {
 }
 
 .ai-icon {
+    background: var(--foreground);
+    color: var(--background);
+}
+
+/* Hover effects for Web3 and AI icons */
+.service-card:hover .web3-icon,
+.service-card:hover .ai-icon {
     background: var(--magenta);
     color: var(--background);
 }

@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     try {
         // Fetch the blog posts from crypto-mum.com
-        const response = await fetch('https://crypto-mum.com/wp-json/wp/v2/posts?per_page=8&_embed=true');
+        const response = await fetch('https://crypto-mum.com/wp-json/wp/v2/posts?per_page=6&_embed=true');
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
