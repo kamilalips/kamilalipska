@@ -8,14 +8,17 @@
 }
 
 :root {
-    /* Vercel Colors */
+    /* Vercel Colors with Magenta Accent */
     --background: #fafafa;
     --foreground: #000000;
     --muted: #666666;
     --muted-foreground: #999999;
     --border: #e5e5e5;
-    --accent: #000000;
+    --accent: #e91e63;
     --accent-foreground: #ffffff;
+    --magenta: #e91e63;
+    --magenta-light: #f8bbd9;
+    --magenta-dark: #c2185b;
     
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -129,12 +132,12 @@ body {
 }
 
 .btn-primary {
-    background: var(--foreground);
+    background: var(--magenta);
     color: var(--background);
 }
 
 .btn-primary:hover {
-    background: var(--muted);
+    background: var(--magenta-dark);
     transform: translateY(-1px);
 }
 
@@ -145,8 +148,9 @@ body {
 }
 
 .btn-secondary:hover {
-    background: var(--foreground);
+    background: var(--magenta);
     color: var(--background);
+    border-color: var(--magenta);
 }
 
 .btn-large {
@@ -309,6 +313,96 @@ body {
     color: var(--muted);
     font-size: 0.875rem;
     font-family: var(--font-mono);
+}
+
+/* Web3 Card with Floating Elements */
+.web3-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--background) 0%, var(--magenta-light) 100%);
+    border: 2px solid var(--magenta);
+}
+
+.web3-icon {
+    background: var(--magenta);
+    color: var(--background);
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-element {
+    position: absolute;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.element-1 {
+    width: 8px;
+    height: 8px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    width: 12px;
+    height: 12px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    width: 6px;
+    height: 6px;
+    top: 30%;
+    right: 25%;
+    animation-delay: 2s;
+}
+
+.element-4 {
+    width: 10px;
+    height: 10px;
+    bottom: 25%;
+    left: 20%;
+    animation-delay: 3s;
+}
+
+.element-5 {
+    width: 14px;
+    height: 14px;
+    top: 10%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translateY(-10px) rotate(90deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-5px) rotate(180deg);
+        opacity: 0.15;
+    }
+    75% {
+        transform: translateY(-15px) rotate(270deg);
+        opacity: 0.25;
+    }
 }
 
 /* About Section */
@@ -529,7 +623,7 @@ body {
 .tool-level {
     font-size: 0.75rem;
     padding: var(--space-1) var(--space-2);
-    background: var(--foreground);
+    background: var(--magenta);
     color: var(--background);
     border-radius: 4px;
     font-weight: 600;
@@ -648,7 +742,7 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: var(--foreground);
+    background: var(--magenta);
     color: var(--background);
     border-radius: 6px;
 }
