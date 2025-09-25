@@ -46,9 +46,30 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--foreground);
-    background: var(--background);
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.06) 0%, transparent 50%),
+        linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    animation: backgroundShift 20s ease-in-out infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes backgroundShift {
+    0%, 100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%, 0% 100%, 25% 75%, 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%, 0% 0%, 75% 25%, 0% 0%;
+    }
+    75% {
+        background-position: 0% 100%, 100% 0%, 50% 50%, 0% 0%;
+    }
 }
 
 /* Header */
@@ -181,12 +202,12 @@ body {
     z-index: -1;
     overflow: hidden;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 60% 30%, rgba(233, 30, 99, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 10% 70%, rgba(233, 30, 99, 0.12) 0%, transparent 50%);
-    animation: backgroundPulse 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 60% 30%, rgba(233, 30, 99, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 10% 70%, rgba(233, 30, 99, 0.03) 0%, transparent 50%);
+    animation: backgroundPulse 25s ease-in-out infinite;
 }
 
 @keyframes backgroundPulse {
@@ -247,10 +268,11 @@ body {
 .connection-line {
     position: absolute;
     background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-    height: 4px;
-    opacity: 0.7;
-    animation: lineFlow 5s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(233, 30, 99, 0.8);
+    height: 2px;
+    opacity: 0.6;
+    animation: lineFlow 8s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
+    border-radius: 1px;
 }
 
 .line-1 { width: 100px; top: 20%; left: 20%; animation-delay: 0s; }
@@ -438,7 +460,7 @@ body {
     height: 100px;
     background: linear-gradient(180deg, transparent, var(--magenta), transparent);
     opacity: 0.4;
-    animation: dataFlow 5s linear infinite;
+    animation: dataFlow 6s linear infinite;
     box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
 }
 
@@ -460,6 +482,78 @@ body {
     100% {
         transform: translateY(100vh);
         opacity: 0;
+    }
+}
+
+/* Web3 Network Connections */
+.network-connection {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: networkPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.8);
+}
+
+.connection-1 { top: 15%; left: 30%; animation-delay: 0s; }
+.connection-2 { top: 35%; right: 25%; animation-delay: 0.5s; }
+.connection-3 { top: 55%; left: 20%; animation-delay: 1s; }
+.connection-4 { top: 75%; right: 40%; animation-delay: 1.5s; }
+.connection-5 { top: 25%; left: 70%; animation-delay: 2s; }
+.connection-6 { top: 65%; right: 15%; animation-delay: 2.5s; }
+
+@keyframes networkPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(233, 30, 99, 0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(3);
+        box-shadow: 0 0 30px rgba(233, 30, 99, 1);
+    }
+}
+
+/* Blockchain Data Flow */
+.blockchain-flow {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: blockchainMove 12s linear infinite;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+}
+
+.flow-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.flow-2 { top: 30%; right: 20%; animation-delay: 3s; }
+.flow-3 { top: 50%; left: 15%; animation-delay: 6s; }
+.flow-4 { top: 70%; right: 30%; animation-delay: 9s; }
+
+@keyframes blockchainMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translate(50px, 30px) scale(1.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(100px, 60px) scale(1);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(150px, 90px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(200px, 120px) scale(1);
+        opacity: 0.7;
     }
 }
 
