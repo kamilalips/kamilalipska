@@ -179,6 +179,20 @@ body {
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.03) 0%, transparent 50%);
+    animation: backgroundPulse 20s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
 }
 
 /* Floating Particles */
@@ -186,9 +200,9 @@ body {
     position: absolute;
     background: var(--magenta);
     border-radius: 50%;
-    opacity: 0.15;
-    animation: particleFloat 15s ease-in-out infinite;
-    box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
+    opacity: 0.3;
+    animation: particleFloat 12s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(233, 30, 99, 0.6);
 }
 
 .particle-1 { width: 8px; height: 8px; top: 10%; left: 15%; animation-delay: 0s; }
@@ -209,20 +223,20 @@ body {
 
 @keyframes particleFloat {
     0%, 100% {
-        transform: translateY(0px) translateX(0px) scale(1);
-        opacity: 0.15;
+        transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+        opacity: 0.3;
     }
     25% {
-        transform: translateY(-30px) translateX(15px) scale(1.2);
-        opacity: 0.25;
+        transform: translateY(-50px) translateX(25px) scale(1.5) rotate(90deg);
+        opacity: 0.6;
     }
     50% {
-        transform: translateY(-15px) translateX(-10px) scale(0.8);
-        opacity: 0.2;
+        transform: translateY(-25px) translateX(-20px) scale(0.7) rotate(180deg);
+        opacity: 0.4;
     }
     75% {
-        transform: translateY(-40px) translateX(20px) scale(1.1);
-        opacity: 0.3;
+        transform: translateY(-60px) translateX(30px) scale(1.3) rotate(270deg);
+        opacity: 0.7;
     }
 }
 
@@ -230,9 +244,10 @@ body {
 .connection-line {
     position: absolute;
     background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-    height: 2px;
-    opacity: 0.2;
-    animation: lineFlow 8s ease-in-out infinite;
+    height: 3px;
+    opacity: 0.4;
+    animation: lineFlow 6s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
 }
 
 .line-1 { width: 100px; top: 20%; left: 20%; animation-delay: 0s; }
@@ -246,21 +261,22 @@ body {
 
 @keyframes lineFlow {
     0%, 100% {
-        opacity: 0.1;
-        transform: scaleX(0.5);
+        opacity: 0.2;
+        transform: scaleX(0.3);
     }
     50% {
-        opacity: 0.3;
-        transform: scaleX(1);
+        opacity: 0.7;
+        transform: scaleX(1.2);
     }
 }
 
 /* Geometric Shapes */
 .geometric-shape {
     position: absolute;
-    border: 2px solid var(--magenta);
-    opacity: 0.1;
-    animation: shapeRotate 20s linear infinite;
+    border: 3px solid var(--magenta);
+    opacity: 0.3;
+    animation: shapeRotate 15s linear infinite;
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.4);
 }
 
 .shape-1 {
@@ -320,36 +336,36 @@ body {
 @keyframes shapeRotate {
     0% {
         transform: rotate(0deg) scale(1);
-        opacity: 0.1;
+        opacity: 0.3;
     }
     25% {
-        transform: rotate(90deg) scale(1.1);
-        opacity: 0.15;
+        transform: rotate(90deg) scale(1.3);
+        opacity: 0.5;
     }
     50% {
-        transform: rotate(180deg) scale(0.9);
-        opacity: 0.2;
+        transform: rotate(180deg) scale(0.8);
+        opacity: 0.4;
     }
     75% {
-        transform: rotate(270deg) scale(1.05);
-        opacity: 0.15;
+        transform: rotate(270deg) scale(1.2);
+        opacity: 0.6;
     }
     100% {
         transform: rotate(360deg) scale(1);
-        opacity: 0.1;
+        opacity: 0.3;
     }
 }
 
 /* Web3 Network Nodes */
 .network-node {
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background: var(--magenta);
     border-radius: 50%;
-    opacity: 0.2;
-    animation: nodePulse 4s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+    opacity: 0.4;
+    animation: nodePulse 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
 }
 
 .node-1 { top: 12%; left: 25%; animation-delay: 0s; }
@@ -358,17 +374,89 @@ body {
 .node-4 { top: 62%; right: 20%; animation-delay: 2.4s; }
 .node-5 { top: 78%; left: 35%; animation-delay: 3.2s; }
 .node-6 { top: 35%; left: 65%; animation-delay: 4s; }
+.node-7 { top: 18%; left: 75%; animation-delay: 4.8s; }
+.node-8 { top: 42%; right: 10%; animation-delay: 5.6s; }
+.node-9 { top: 68%; left: 50%; animation-delay: 6.4s; }
+.node-10 { top: 88%; right: 50%; animation-delay: 7.2s; }
 
 @keyframes nodePulse {
     0%, 100% {
-        opacity: 0.2;
+        opacity: 0.4;
         transform: scale(1);
-        box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+        box-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
     }
     50% {
+        opacity: 0.9;
+        transform: scale(2);
+        box-shadow: 0 0 40px rgba(233, 30, 99, 0.9);
+    }
+}
+
+/* Blockchain Blocks */
+.blockchain-block {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, var(--magenta), var(--magenta-light));
+    border-radius: 4px;
+    opacity: 0.3;
+    animation: blockMine 8s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+}
+
+.block-1 { top: 25%; left: 30%; animation-delay: 0s; }
+.block-2 { top: 45%; right: 25%; animation-delay: 2s; }
+.block-3 { top: 65%; left: 20%; animation-delay: 4s; }
+.block-4 { top: 85%; right: 35%; animation-delay: 6s; }
+
+@keyframes blockMine {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
         opacity: 0.6;
-        transform: scale(1.5);
-        box-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
+        transform: scale(1.2) rotate(90deg);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8) rotate(180deg);
+    }
+    75% {
+        opacity: 0.7;
+        transform: scale(1.1) rotate(270deg);
+    }
+}
+
+/* Data Streams */
+.data-stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, var(--magenta), transparent);
+    opacity: 0.4;
+    animation: dataFlow 5s linear infinite;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+}
+
+.stream-1 { top: 0%; left: 25%; animation-delay: 0s; }
+.stream-2 { top: 0%; right: 30%; animation-delay: 1.5s; }
+.stream-3 { top: 0%; left: 60%; animation-delay: 3s; }
+
+@keyframes dataFlow {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
     }
 }
 
