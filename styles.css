@@ -153,16 +153,16 @@ body {
     border-color: var(--magenta);
 }
 
-.btn-outline {
-    background: transparent;
-    color: var(--foreground);
-    border: 2px solid var(--border);
+.btn.btn-outline {
+    background: transparent !important;
+    color: var(--foreground) !important;
+    border: 2px solid var(--border) !important;
 }
 
-.btn-outline:hover {
-    background: transparent;
-    color: var(--foreground);
-    border-color: var(--border);
+.btn.btn-outline:hover {
+    background: transparent !important;
+    color: var(--foreground) !important;
+    border-color: var(--border) !important;
 }
 
 .btn-large {
