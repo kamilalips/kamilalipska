@@ -160,9 +160,9 @@ body {
 }
 
 .btn-outline:hover {
-    background: var(--magenta);
-    color: var(--background);
-    border-color: var(--magenta);
+    background: transparent;
+    color: var(--foreground);
+    border-color: var(--border);
 }
 
 .btn-large {
