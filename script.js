@@ -1,4 +1,4 @@
-// Enhanced interactive website with engaging animations
+// Enhanced website with focus on clear skills presentation
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
@@ -64,25 +64,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 entry.target.classList.add('animate-in');
                 
                 // Special animations for different elements
-                if (entry.target.classList.contains('work-card')) {
-                    entry.target.style.animationDelay = `${Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.1}s`;
+                if (entry.target.classList.contains('skill-category')) {
+                    const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.1;
+                    entry.target.style.animationDelay = `${delay}s`;
                 }
                 
-                if (entry.target.classList.contains('highlight-item')) {
-                    entry.target.style.animationDelay = `${Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.2}s`;
+                if (entry.target.classList.contains('skill-item')) {
+                    const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.05;
+                    entry.target.style.animationDelay = `${delay}s`;
                 }
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.work-card, .highlight-item, .visual-card, .stack-visual');
+    const animateElements = document.querySelectorAll('.skill-category, .skill-item, .work-card, .visual-card');
     animateElements.forEach(el => {
         observer.observe(el);
     });
     
     // Enhanced parallax effects
-    const bgElements = document.querySelectorAll('.bg-gradient, .shape');
+    const bgElements = document.querySelectorAll('.bg-gradient');
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         const rate = scrolled * -0.5;
@@ -122,7 +124,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 1000);
     
-    // Enhanced card hover effects
+    // Enhanced skill category interactions
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach(category => {
+        category.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.borderColor = 'var(--primary)';
+        });
+        
+        category.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.borderColor = 'var(--gray-200)';
+        });
+    });
+    
+    // Enhanced skill item interactions
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px) scale(1.01)';
+            this.style.borderColor = 'var(--primary)';
+            this.style.boxShadow = 'var(--shadow-lg)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.borderColor = 'var(--gray-200)';
+            this.style.boxShadow = 'var(--shadow-sm)';
+        });
+    });
+    
+    // Skill level indicators animation
+    const skillLevels = document.querySelectorAll('.skill-level');
+    skillLevels.forEach(level => {
+        level.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.3)';
+        });
+        
+        level.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+    });
+    
+    // Enhanced work card interactions
     const workCards = document.querySelectorAll('.work-card');
     workCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -135,46 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = this.classList.contains('featured') 
                 ? 'scale(1.05)' 
                 : 'translateY(0) scale(1)';
-        });
-    });
-    
-    // Stack tools interaction
-    const stackTools = document.querySelectorAll('.tool');
-    stackTools.forEach(tool => {
-        tool.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.2)';
-            this.style.zIndex = '10';
-            
-            // Add tooltip
-            const tooltip = document.createElement('div');
-            tooltip.className = 'tooltip';
-            tooltip.textContent = this.dataset.tool;
-            tooltip.style.cssText = `
-                position: absolute;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--gray-800);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 0.5rem;
-                font-size: 0.875rem;
-                white-space: nowrap;
-                z-index: 1000;
-                margin-bottom: 0.5rem;
-            `;
-            
-            this.appendChild(tooltip);
-        });
-        
-        tool.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.zIndex = '1';
-            
-            const tooltip = this.querySelector('.tooltip');
-            if (tooltip) {
-                tooltip.remove();
-            }
         });
     });
     
@@ -263,20 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Floating elements animation
-    const floatingCards = document.querySelectorAll('.floating-card');
-    floatingCards.forEach((card, index) => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.1)';
-            this.style.zIndex = '10';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.zIndex = '1';
-        });
-    });
-    
     // Stats counter animation
     const statNumbers = document.querySelectorAll('.stat-number');
     const statsObserver = new IntersectionObserver((entries) => {
@@ -318,24 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(stat);
     });
     
-    // Enhanced highlight items
-    const highlightItems = document.querySelectorAll('.highlight-item');
-    highlightItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(10px)';
-            this.style.backgroundColor = 'var(--gray-50)';
-            this.style.borderRadius = 'var(--radius-lg)';
-            this.style.padding = 'var(--space-4)';
-            this.style.transition = 'var(--transition-fast)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(0)';
-            this.style.backgroundColor = 'transparent';
-            this.style.padding = '0';
-        });
-    });
-    
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
@@ -373,31 +347,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', debouncedScrollHandler);
     
-    // Cursor trail effect
-    const cursor = document.createElement('div');
-    cursor.className = 'cursor-trail';
-    cursor.style.cssText = `
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        background: var(--primary);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    `;
-    document.body.appendChild(cursor);
-    
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX - 10 + 'px';
-        cursor.style.top = e.clientY - 10 + 'px';
-        cursor.style.opacity = '0.3';
-    });
-    
-    document.addEventListener('mouseleave', function() {
-        cursor.style.opacity = '0';
-    });
+    // Skills section highlight on scroll
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection) {
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('skills-visible');
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        skillsObserver.observe(skillsSection);
+    }
     
     // Initialize AOS (Animate On Scroll) alternative
     const initScrollAnimations = () => {
@@ -472,6 +434,22 @@ style.textContent = `
         transition: all 0.3s ease;
     }
     
+    .skill-category {
+        transition: all 0.3s ease;
+    }
+    
+    .skill-category.animate-in {
+        animation: slideInUp 0.6s ease-out forwards;
+    }
+    
+    .skill-item {
+        transition: all 0.3s ease;
+    }
+    
+    .skill-item.animate-in {
+        animation: slideInUp 0.6s ease-out forwards;
+    }
+    
     .work-card {
         transition: all 0.3s ease;
     }
@@ -480,35 +458,20 @@ style.textContent = `
         animation: slideInUp 0.6s ease-out forwards;
     }
     
-    .highlight-item {
-        transition: all 0.3s ease;
+    .skills-visible {
+        animation: skillsHighlight 0.8s ease-out;
     }
     
-    .highlight-item.animate-in {
-        animation: slideInLeft 0.6s ease-out forwards;
-    }
-    
-    @keyframes slideInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-30px);
+    @keyframes skillsHighlight {
+        0% {
+            background: var(--bg-primary);
         }
-        to {
-            opacity: 1;
-            transform: translateX(0);
+        50% {
+            background: var(--bg-secondary);
         }
-    }
-    
-    .floating-card {
-        transition: all 0.3s ease;
-    }
-    
-    .tool {
-        transition: all 0.3s ease;
-    }
-    
-    .contact-method {
-        transition: all 0.3s ease;
+        100% {
+            background: var(--bg-primary);
+        }
     }
     
     @media (max-width: 768px) {
@@ -540,10 +503,6 @@ style.textContent = `
         .nav-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
-        
-        .cursor-trail {
-            display: none;
-        }
     }
     
     /* Enhanced hover effects */
@@ -557,21 +516,14 @@ style.textContent = `
     
     /* Smooth transitions for all interactive elements */
     * {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    /* Loading states */
-    .loading {
-        opacity: 0.7;
-        pointer-events: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     
     /* Focus states for accessibility */
     .btn:focus,
     .nav-link:focus,
     .contact-method:focus,
-    .nav-dot:focus,
-    .tool:focus {
+    .nav-dot:focus {
         outline: 2px solid var(--primary);
         outline-offset: 2px;
     }
