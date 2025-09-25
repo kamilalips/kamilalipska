@@ -25,732 +25,522 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <span class="logo-text">KL</span>
-            </div>
-        </div>
-        
-        <nav class="sidebar-nav">
-            <a href="#home" class="nav-item active" data-page="home">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                    </svg>
-                </div>
-                <span class="nav-label">Home</span>
-                <span class="nav-shortcut">1</span>
-            </a>
-            
-            <a href="#about" class="nav-item" data-page="about">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <span class="nav-label">About</span>
-                <span class="nav-shortcut">2</span>
-            </a>
-            
-            <a href="#systems" class="nav-item" data-page="systems">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <span class="nav-label">Systems</span>
-                <span class="nav-shortcut">3</span>
-            </a>
-            
-            <a href="#stack" class="nav-item" data-page="stack">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <span class="nav-label">Stack</span>
-                <span class="nav-shortcut">4</span>
-            </a>
-            
-            <a href="#testimonials" class="nav-item" data-page="testimonials">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <span class="nav-label">Testimonials</span>
-                <span class="nav-shortcut">5</span>
-            </a>
-            
-            <div class="nav-divider">Connect</div>
-            
-            <a href="#contact" class="nav-item" data-page="contact">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                    </svg>
-                </div>
-                <span class="nav-label">Contact</span>
-                <span class="nav-shortcut">6</span>
-            </a>
-            
-            <a href="https://linkedin.com/in/kamilalipska" class="nav-item" target="_blank">
-                <div class="nav-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <span class="nav-label">LinkedIn</span>
-                <span class="nav-shortcut">7</span>
-            </a>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Page -->
-        <section id="home" class="page active">
-            <div class="page-header">
-                <h1 class="page-title">Good morning</h1>
-                <p class="page-subtitle">
-                    I'm Kamila Lipska, a Growth Systems Architect who builds scalable marketing infrastructures for Web3 & SaaS companies.
-                </p>
-            </div>
-            
-            <div class="services-overview">
-                <h2>What I Build</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Analytics & Data Infrastructure</h3>
-                        <p>GA4, PostHog, Segment, GTM, Keitaro</p>
-                        <a href="#stack" class="service-link">View Tools →</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
-                        </div>
-                        <h3>Paid Acquisition Systems</h3>
-                        <p>Google Ads, Meta, LinkedIn, Crypto Networks</p>
-                        <a href="#systems" class="service-link">View Systems →</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                            </svg>
-                        </div>
-                        <h3>SEO & Organic Growth</h3>
-                        <p>Technical SEO, Content Strategy, Search Console</p>
-                        <a href="#systems" class="service-link">View Systems →</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3>Lifecycle & Automation</h3>
-                        <p>HubSpot, Customer.io, Zapier, VWO</p>
-                        <a href="#stack" class="service-link">View Tools →</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Web3 Growth Systems</h3>
-                        <p>Crypto Ads, Developer Acquisition, Token Adoption</p>
-                        <a href="#systems" class="service-link">View Systems →</a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
-                        </div>
-                        <h3>Conversion Optimization</h3>
-                        <p>A/B Testing, UX Analysis, Funnel Optimization</p>
-                        <a href="#systems" class="service-link">View Systems →</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="intro-cards">
-                <div class="intro-card">
-                    <p>Use keyboard shortcuts 1 → 7 to navigate between pages. Try pressing 2, 3, 4, then 1 to come back here.</p>
-                </div>
-                
-                <div class="intro-card">
-                    <p>I architect complete growth stacks that connect data, automation, and acquisition into one high-performing system.</p>
-                    <a href="#about">Learn more about my approach →</a>
-                </div>
-                
-                <div class="intro-card">
-                    <p>I'm fortunate to have worked with inspiring people and rockstar brands across Web3 and SaaS.</p>
-                    <a href="#testimonials">See what they have to say →</a>
-                </div>
-                
-                <div class="intro-card">
-                    <p>Ready to turn your growth challenges into scalable systems?</p>
-                    <a href="#contact">Let's discuss your project →</a>
-                </div>
-            </div>
-            
-            <div class="recent-updates">
-                <h2>Recent updates</h2>
-                <div class="updates-grid">
-                    <div class="update-item">
-                        <div class="update-date">2024</div>
-                        <div class="update-content">
-                            <h3>Launched Web3 Growth Systems</h3>
-                            <p>Specialized acquisition systems for crypto projects, from token adoption to developer community building.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="update-item">
-                        <div class="update-date">2024</div>
-                        <div class="update-content">
-                            <h3>Enhanced Attribution Models</h3>
-                            <p>Built multi-touch attribution systems that expose true ROI drivers and revenue-contributing journeys.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="update-item">
-                        <div class="update-date">2023</div>
-                        <div class="update-content">
-                            <h3>Scaled SaaS Growth Operations</h3>
-                            <p>Architected complete growth stacks for multiple SaaS companies, driving measurable revenue outcomes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Page -->
-        <section id="about" class="page">
-            <div class="page-header">
-                <h1 class="page-title">About</h1>
-                <p class="page-subtitle">Strategic depth meets technical execution</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead">
-                        I'm not your typical marketer. I'm a <strong>systems thinker</strong> who sees 
-                        the bigger picture and builds infrastructure that scales.
-                    </p>
-                    
-                    <p>
-                        I'm Kamila Lipska, a full-stack growth architect with 15+ years of experience in SaaS, Web3, and digital ecosystems. I specialize in designing scalable marketing infrastructures that connect strategy with implementation, enabling high-velocity growth for companies navigating complexity, fragmentation, or rapid expansion.
-                    </p>
-                    
-                    <p>
-                        From marketing data pipelines to automation architecture, attribution modeling to GTM strategy, I don't just identify gaps, I build the systems that fix them for good. CEOs and CMOs trust me when they need a senior operator who can move fast, solve without hand-holding, and lead complex initiatives across brands, teams, or toolsets.
-                    </p>
-                    
-                    <p>
-                        I'm EU-based, operate globally, and thrive in environments where autonomy, clarity, and strategic depth matter. My approach is grounded in analytics, driven by impact, and built for scale. I work remotely with American tech companies and founders who need someone they don't have to micromanage.
-                    </p>
-                </div>
-                
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <div class="highlight-content">
-                            <h3>My Approach</h3>
-                            <p>I architect growth systems that unify strategy with execution by blending precision, speed, and data integrity across the stack. My work goes beyond campaigns: I design self-sustaining infrastructures that turn fragmented tools and processes into revenue-aligned engines.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
-                        </div>
-                        <div class="highlight-content">
-                            <h3>What Sets Me Apart</h3>
-                            <p>I'm a hybrid operator, strategic enough to architect the entire growth stack, technical enough to implement it without friction. My value lies in building order out of chaos: aligning data, automation, paid and organic, attribution, and CRM into one high-performing machine.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                            </svg>
-                        </div>
-                        <div class="highlight-content">
-                            <h3>Systematic Thinking</h3>
-                            <p>If it doesn't generate impact or unlock leverage, it doesn't belong in the system. I don't just optimize what's broken, I design systems that don't break.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Systems Page -->
-        <section id="systems" class="page">
-            <div class="page-header">
-                <h1 class="page-title">Growth Systems I Build</h1>
-                <p class="page-subtitle">High-leverage systems that make growth scalable, measurable, and self-sustaining</p>
-            </div>
-            
-            <div class="systems-intro">
-                <p>I design and implement high-leverage systems that make growth scalable, measurable, and self-sustaining. These aren't isolated services, they're interconnected infrastructures that align data, automation, and acquisition with your business model. Whether you're fixing what's broken or building from scratch, I create systems that drive revenue, not vanity metrics.</p>
-            </div>
-            
-            <div class="systems-grid">
-                <div class="system-item">
-                    <div class="system-number">01</div>
-                    <div class="system-content">
-                        <h3>Advanced Tracking & Data Infrastructure</h3>
-                        <p>I architect full-funnel tracking systems that give you clean, real-time visibility into performance, attribution, and revenue outcomes. From server-side pipelines to multi-touch models, I eliminate data blind spots and fix attribution at the source, ensuring every growth decision is based on truth, not assumptions.</p>
-                        <div class="system-components">
-                            <div class="component">GA4 & PostHog advanced tracking</div>
-                            <div class="component">Server-side GTM & custom data layers</div>
-                            <div class="component">Multi-touch attribution models</div>
+    <!-- Left Sidebar Navigation (Seth's Style) -->
+    <div class="s-nav navigator">
+        <div class="s-navbar-desktop">
+            <div class="s-nav-inner">
+                <!-- Profile Image -->
+                <div class="s-logo">
+                    <div class="s-logo-image-normal">
+                        <div class="s-logo-image">
+                            <div class="s-component s-image">
+                                <div class="s-component-content">
+                                    <div class="s-img-wrapper">
+                                        <img alt="Kamila Lipska" title="Kamila Lipska" class="crop-default" src="logo.svg" width="200" height="200" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="system-item">
-                    <div class="system-number">02</div>
-                    <div class="system-content">
-                        <h3>SEO & Organic Growth Systems</h3>
-                        <p>I build SEO infrastructures that go far beyond rankings, aligning technical foundations, content systems, and structured data to drive sustainable, compounding growth. My work turns organic traffic into a predictable acquisition channel by fixing what's broken, surfacing what's missing, and ensuring content and performance align with business goals.</p>
-                        <div class="system-components">
-                            <div class="component">Technical SEO audits & fixes</div>
-                            <div class="component">Schema & structured data optimization</div>
-                            <div class="component">Content strategy & optimization</div>
-                        </div>
-                    </div>
+                <!-- Name and Title -->
+                <div class="s-logo-subtitle">
+                    <h1 class="s-font-title">Kamila Lipska</h1>
+                    <p class="s-font-body">Growth Systems Architect</p>
                 </div>
                 
-                <div class="system-item">
-                    <div class="system-number">03</div>
-                    <div class="system-content">
-                        <h3>Paid Acquisition Systems</h3>
-                        <p>I build scalable paid acquisition systems that align strategy, segmentation, and attribution from the first click to final conversion. My approach blends precision audience targeting, channel-specific creative logic, and performance-focused tracking to deliver high-ROI campaigns, not just impressions.</p>
-                        <div class="system-components">
-                            <div class="component">Google Ads, Meta, LinkedIn & X Ads</div>
-                            <div class="component">Crypto & Web3 advertising</div>
-                            <div class="component">Landing page & conversion tracking</div>
-                        </div>
-                    </div>
+                <!-- Navigation Menu -->
+                <div class="s-nav-items-and-links">
+                    <ul class="s-nav-items">
+                        <li class="s-nav-item">
+                            <a href="#home" class="s-nav-link active" data-section="home">
+                                <span class="s-nav-text">Home</span>
+                            </a>
+                        </li>
+                        <li class="s-nav-item">
+                            <a href="#about" class="s-nav-link" data-section="about">
+                                <span class="s-nav-text">About</span>
+                            </a>
+                        </li>
+                        <li class="s-nav-item">
+                            <a href="#systems" class="s-nav-link" data-section="systems">
+                                <span class="s-nav-text">Growth Systems</span>
+                            </a>
+                        </li>
+                        <li class="s-nav-item">
+                            <a href="#stack" class="s-nav-link" data-section="stack">
+                                <span class="s-nav-text">Tech Stack</span>
+                            </a>
+                        </li>
+                        <li class="s-nav-item">
+                            <a href="#testimonials" class="s-nav-link" data-section="testimonials">
+                                <span class="s-nav-text">Testimonials</span>
+                            </a>
+                        </li>
+                        <li class="s-nav-item">
+                            <a href="#contact" class="s-nav-link" data-section="contact">
+                                <span class="s-nav-text">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 
-                <div class="system-item">
-                    <div class="system-number">04</div>
-                    <div class="system-content">
-                        <h3>Lifecycle & Automation Systems</h3>
-                        <p>I build lifecycle systems that combine CRM logic, marketing automation, and sales enablement into one seamless growth engine. My work transforms scattered tools and workflows into fully integrated systems that react to user behavior, personalize experiences at scale, and accelerate pipeline velocity.</p>
-                        <div class="system-components">
-                            <div class="component">HubSpot, Customer.io & Zapier integrations</div>
-                            <div class="component">Behavior-based automation</div>
-                            <div class="component">Lead scoring & segmentation</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="system-item">
-                    <div class="system-number">05</div>
-                    <div class="system-content">
-                        <h3>Conversion Optimization Systems</h3>
-                        <p>I design conversion systems that turn behavioral data into growth levers, combining experimentation, analytics, and journey-level insight to drive measurable improvements across key funnels. From A/B testing infrastructure to form optimization and session diagnostics, I don't guess what works, I validate, refine, and scale it.</p>
-                        <div class="system-components">
-                            <div class="component">A/B testing & performance experiments</div>
-                            <div class="component">Heatmaps & session recordings</div>
-                            <div class="component">Form & checkout optimization</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="system-item">
-                    <div class="system-number">06</div>
-                    <div class="system-content">
-                        <h3>Web3 Growth Systems</h3>
-                        <p>I design acquisition systems built for the complexity of Web3, aligning paid channels, search intent, onboarding, and developer traction into compliant, performance-driven funnels. Whether it's driving token adoption or structuring user journeys across L2s, dApps, or security ecosystems, I architect growth programs that are measurable, scalable, and made for technical audiences.</p>
-                        <div class="system-components">
-                            <div class="component">Crypto-native ad networks</div>
-                            <div class="component">SEO & content for Web3 projects</div>
-                            <div class="component">Developer & user acquisition</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stack Page -->
-        <section id="stack" class="page">
-            <div class="page-header">
-                <h1 class="page-title">My Stack</h1>
-                <p class="page-subtitle">The platforms I use to architect scalable growth systems</p>
-            </div>
-            
-            <div class="stack-intro">
-                <p>This is a glimpse into the platforms I use to architect scalable growth systems. While these are some of the most recognized tools in analytics, automation, acquisition, and optimization, my real strength lies in how I connect them. I adapt to any stack, extend capabilities beyond defaults, and build solutions that align with your growth model — not just your toolset.</p>
-            </div>
-            
-            <div class="stack-categories">
-                <div class="category-header">
-                    <h3>Analytics & Intelligence</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">GA4</span>
-                        <span class="tool-tag">PostHog</span>
-                        <span class="tool-tag">Hotjar</span>
-                        <span class="tool-tag">Search Console</span>
-                        <span class="tool-tag">Ahrefs</span>
-                    </div>
-                </div>
-                
-                <div class="category-header">
-                    <h3>Data Infrastructure & Automation</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">Segment</span>
-                        <span class="tool-tag">Google Tag Manager</span>
-                        <span class="tool-tag">Zapier</span>
-                        <span class="tool-tag">Make</span>
-                    </div>
-                </div>
-                
-                <div class="category-header">
-                    <h3>Attribution & Tracking</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">Keitaro</span>
-                        <span class="tool-tag">Server-side GTM</span>
-                        <span class="tool-tag">Custom Data Layers</span>
-                    </div>
-                </div>
-                
-                <div class="category-header">
-                    <h3>Paid Acquisition</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">Google Ads</span>
-                        <span class="tool-tag">Meta Ads</span>
-                        <span class="tool-tag">LinkedIn Ads</span>
-                        <span class="tool-tag">Crypto Networks</span>
-                        <span class="tool-tag">Brave Ads</span>
-                    </div>
-                </div>
-                
-                <div class="category-header">
-                    <h3>Growth Operations</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">HubSpot</span>
-                        <span class="tool-tag">VWO</span>
-                        <span class="tool-tag">Customer.io</span>
-                        <span class="tool-tag">Brevo</span>
-                    </div>
-                </div>
-                
-                <div class="category-header">
-                    <h3>Development & Content</h3>
-                    <div class="category-tools">
-                        <span class="tool-tag">HTML/CSS/JS</span>
-                        <span class="tool-tag">Webflow</span>
-                        <span class="tool-tag">WordPress</span>
-                        <span class="tool-tag">Notion</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stack-details">
-                <h3>Detailed Tool Expertise</h3>
-                <div class="stack-grid">
-                    <div class="stack-category">
-                        <h4 class="category-title">Analytics & Intelligence</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>GA4</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I use GA4 not just to track, but to diagnose, repair, and activate. From custom events to conversion modeling, I dig into user journeys, surface friction points, and translate data into business decisions. I fix broken views, attribution issues, and reporting gaps so teams can finally trust what they're seeing.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>PostHog</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I use PostHog to map real user behavior and make sense of complex customer journeys. From event-based tracking to funnel breakdowns and cohort segmentation, I turn behavioral data into clear growth insights. My implementations help uncover where users drop off, how they interact with key flows, and what patterns signal intent.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Hotjar</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I conduct comprehensive experience analysis through integrated heatmaps, scroll depth tracking, and qualitative user feedback collection to identify friction points and conversion opportunities. My approach includes segmenting user recordings by behavioral patterns and correlating survey responses with technical issues.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stack-category">
-                        <h4 class="category-title">Data Infrastructure & Automation</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Segment</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I use Segment to transform scattered, unreliable data into a clean, centralized source of truth. I design customer data pipelines that handle identity stitching, event enrichment, and payload transformation across the entire stack — making downstream tools smarter and more aligned.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Google Tag Manager</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I treat GTM like a control center, debugging broken tracking, customizing scripts, and ensuring nothing leaks or lags. I've deployed server-side GTM, fixed critical event mapping, and engineered setups that survive scaling, redesigns, and ad blockers. Every tag I build serves a measurable purpose.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Zapier & Make</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I build no-code automation systems that eliminate human bottlenecks. Whether syncing leads, fixing webhook logic, or triggering custom CRM workflows, I turn Zapier and Make into robust infrastructure, not just quick fixes. My setups include error handling, conditional logic, and nested flows that run at scale.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stack-category">
-                        <h4 class="category-title">Attribution & Tracking</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Keitaro</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I use Keitaro when teams need reliable attribution across paid channels. I fix misattributions, expose fraud, and validate performance with advanced logic. Whether tracking by campaign, device, or user journey, I make sure every insight is clean, accurate, and actionable. It becomes the foundation for confident budget decisions.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Search Console</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I leverage GSC for in-depth search performance analysis, combining indexation diagnostics, structured data checks, and experience signals to improve rankings. I connect impression trends to conversion outcomes, exposing friction in search-to-site journeys. GSC becomes a truth layer between what's indexed, what ranks, and what drives business value.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Ahrefs</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I use Ahrefs to power technical SEO audits, keyword clustering, and competitive intelligence that drive sustainable search growth. My work identifies crawl inefficiencies, link opportunities, and semantic gaps that block visibility. This turns SEO into a measurable acquisition engine, not a vague content checklist.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stack-category">
-                        <h4 class="category-title">Paid Acquisition</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Google Ads</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I architect high-performance search campaigns with smart bidding logic, granular audience layers, and conversion-verified tracking. I continuously refine structures and align creative with commercial intent, maximizing ROAS while maintaining positioning. These aren't just campaigns, they're profit centers built on strategic intent and measurable ROI.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Meta & LinkedIn Ads</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I develop advanced paid social ecosystems across Meta, LinkedIn, TikTok, and X, combining audience intelligence, funnel segmentation, and creative experimentation. I implement custom attribution setups and optimize across platforms for engagement, cost efficiency, and conversion. Every ad set I build is part of a bigger system.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Crypto & Web3 Ads</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I manage performance campaigns across crypto-native and niche ad networks like Brave, Coinzilla, Taboola, and direct media buys. I implement anti-fraud protocols, optimize creatives for vertical specificity, and track impact through tailored attribution models. These placements unlock underutilized channels with high buying intent.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stack-category">
-                        <h4 class="category-title">Growth Operations</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>HubSpot</h5>
-                                    <span class="stack-level">Expert</span>
-                                </div>
-                                <p>I build RevOps infrastructures inside HubSpot, aligning marketing, sales, and automation into one efficient system. My implementations cover lead scoring, workflow automation, reporting, and bidirectional syncs that power real-time activation. I turn HubSpot from a CRM into a command center for predictable pipeline growth.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>VWO</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I run high-impact experimentation programs in VWO to validate what truly drives growth. From A/B tests to personalization campaigns, I build statistically sound frameworks that turn hypotheses into revenue insights. My tests go beyond UI, they reshape funnels, touchpoints, and the way teams make decisions.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Brevo</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I design intelligent, behavior-triggered email sequences with personalization logic to boost engagement, retention, and conversion. From onboarding flows to reactivation campaigns, I architect messaging systems that scale with your funnel. These flows don't just send emails, they move users through intentional, data-driven journeys.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stack-category">
-                        <h4 class="category-title">Development & Content</h4>
-                        <div class="stack-items">
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>HTML/CSS/JavaScript</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I use front-end code not for design experiments, but to control data quality, track accuracy, and UX performance. From micro-interactions to custom tracking events, I implement with semantic precision and scalability in mind. This lets me bridge the gap between product, marketing, and data, without waiting on engineering.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Webflow</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I build high-performing, conversion-focused websites in Webflow with advanced interactions, clean CMS architecture, and full-stack SEO implementation. My builds integrate seamlessly with tracking systems and CRM workflows, combining speed, scale, and marketing precision. Each site becomes a growth asset, not just a page, but a funnel with structure.</p>
-                            </div>
-                            
-                            <div class="stack-item">
-                                <div class="stack-header">
-                                    <h5>Notion</h5>
-                                    <span class="stack-level">Advanced</span>
-                                </div>
-                                <p>I architect knowledge systems in Notion that scale with teams, from operations dashboards to collaborative documentation flows. My setups replace fragmented SOPs with connected, automated workspaces that accelerate execution. It becomes more than documentation, it's the operational backbone of how teams grow.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Page -->
-        <section id="testimonials" class="page">
-            <div class="page-header">
-                <h1 class="page-title">Kind Words from Clients</h1>
-                <p class="page-subtitle">What CEOs and founders say about working with me</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p>"Kamila is one of the most exceptional individuals I've ever met. I've been working with her on the affiliate marketing program and was impressed by her drive, knowledge and new ideas. She is not only online marketing professional but also easy going and fun person. She is skilful in many areas of online marketing, but what makes her stand out is her constant development and working ethic. I would have no hesitation recommending her to any prospective company who wants an intelligent, dedicated and focused marketer to bring them superb results."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Karolina Skowron</h4>
-                        <span>Account Director, Pepperjam</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p>"Kamila is excellent and really lovely to work with. She pitched a clear and targeted strategy and picked up the paid media activity for bedsonboard.com amazingly quickly, minimising and handover/down time. She was quick to offer a strategy for any new idea I threw at her and of course lived by a test first philosophy that I respected. I'd recommend Kamila for any brands looking for clear, focused and highly engaged growth marketing."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Tim Ludlow</h4>
-                        <span>CEO, Beds on Board</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p>"Working with Kamila and her team has been great from the start. Kamila works very independent and proactive which is exactly what we were looking for. We were able to outsource the online growth aspect fully to her and she's following up on every required task whilst keeping us updated. Working with her feels like she's part of our team and she is great at building a connection with our employees. We're extremely happy with the achieved growth so far and we cannot wait to see the next results!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Emily Garcia</h4>
-                        <span>Founder, Mapiac</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Page -->
-        <section id="contact" class="page">
-            <div class="page-header">
-                <h1 class="page-title">Contact</h1>
-                <p class="page-subtitle">Let's build something together</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-description">
-                        Ready to turn your growth challenges into scalable systems? 
-                        Let's discuss how I can help architect your next breakthrough.
-                    </p>
-                    
-                    <div class="contact-methods">
-                        <a href="mailto:hello@kamilalipska.com" class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <span class="contact-label">Email</span>
-                                <span class="contact-value">hello@kamilalipska.com</span>
-                            </div>
-                        </a>
-                        
-                        <a href="https://linkedin.com/in/kamilalipska" class="contact-method" target="_blank">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <span class="contact-label">LinkedIn</span>
-                                <span class="contact-value">Connect with me</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-cta">
-                    <a href="mailto:hello@kamilalipska.com" class="btn btn-primary">
-                        Start a Project
+                <!-- Social Links -->
+                <div class="s-nav-social-media">
+                    <a href="https://linkedin.com/in/kamilalipska" target="_blank" class="s-social-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:hello@kamilalipska.com" class="s-social-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <!-- Dynamic Background Elements -->
-    <div class="dynamic-bg">
-        <div class="bg-grid"></div>
-        <div class="bg-lines"></div>
-        <div class="bg-dots"></div>
+    <!-- Main Content Area -->
+    <div class="page-wrapper">
+        <div class="s-content">
+            <!-- Home Section -->
+            <section id="home" class="s-section active">
+                <div class="s-section-content">
+                    <div class="hero-content">
+                        <h2 class="s-font-heading">Good morning</h2>
+                        <p class="s-font-body hero-subtitle">
+                            I'm Kamila Lipska, a Growth Systems Architect who builds scalable marketing infrastructures for Web3 & SaaS companies.
+                        </p>
+                        
+                        <div class="hero-description">
+                            <p class="s-font-body">
+                                I bring strategic clarity and technical depth to growth. I architect clean systems, fix chaos, and drive results where others stall.
+                            </p>
+                        </div>
+                        
+                        <div class="services-preview">
+                            <h3 class="s-font-heading">What I Build</h3>
+                            <div class="services-list">
+                                <div class="service-item">
+                                    <span class="service-name">Analytics & Data Infrastructure</span>
+                                    <span class="service-tools">GA4, PostHog, Segment, GTM</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-name">Paid Acquisition Systems</span>
+                                    <span class="service-tools">Google Ads, Meta, LinkedIn, Crypto</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-name">SEO & Organic Growth</span>
+                                    <span class="service-tools">Technical SEO, Content Strategy</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-name">Lifecycle & Automation</span>
+                                    <span class="service-tools">HubSpot, Customer.io, Zapier</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-name">Web3 Growth Systems</span>
+                                    <span class="service-tools">Crypto Ads, Developer Acquisition</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-name">Conversion Optimization</span>
+                                    <span class="service-tools">A/B Testing, UX Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cta-section">
+                            <a href="#contact" class="s-common-button s-font-button">Let's Work Together</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="s-section">
+                <div class="s-section-content">
+                    <h2 class="s-font-heading">About</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p class="s-font-body lead">
+                                I'm not your typical marketer. I'm a <strong>systems thinker</strong> who sees 
+                                the bigger picture and builds infrastructure that scales.
+                            </p>
+                            
+                            <p class="s-font-body">
+                                I'm Kamila Lipska, a full-stack growth architect with 15+ years of experience in SaaS, Web3, and digital ecosystems. I specialize in designing scalable marketing infrastructures that connect strategy with implementation, enabling high-velocity growth for companies navigating complexity, fragmentation, or rapid expansion.
+                            </p>
+                            
+                            <p class="s-font-body">
+                                From marketing data pipelines to automation architecture, attribution modeling to GTM strategy, I don't just identify gaps, I build the systems that fix them for good. CEOs and CMOs trust me when they need a senior operator who can move fast, solve without hand-holding, and lead complex initiatives across brands, teams, or toolsets.
+                            </p>
+                            
+                            <p class="s-font-body">
+                                I'm EU-based, operate globally, and thrive in environments where autonomy, clarity, and strategic depth matter. My approach is grounded in analytics, driven by impact, and built for scale. I work remotely with American tech companies and founders who need someone they don't have to micromanage.
+                            </p>
+                        </div>
+                        
+                        <div class="approach-highlights">
+                            <div class="highlight-item">
+                                <h4 class="s-font-heading">My Approach</h4>
+                                <p class="s-font-body">
+                                    I architect growth systems that unify strategy with execution by blending precision, speed, and data integrity across the stack. My work goes beyond campaigns: I design self-sustaining infrastructures that turn fragmented tools and processes into revenue-aligned engines.
+                                </p>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <h4 class="s-font-heading">What Sets Me Apart</h4>
+                                <p class="s-font-body">
+                                    I'm a hybrid operator, strategic enough to architect the entire growth stack, technical enough to implement it without friction. My value lies in building order out of chaos: aligning data, automation, paid and organic, attribution, and CRM into one high-performing machine.
+                                </p>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <h4 class="s-font-heading">Systematic Thinking</h4>
+                                <p class="s-font-body">
+                                    If it doesn't generate impact or unlock leverage, it doesn't belong in the system. I don't just optimize what's broken, I design systems that don't break.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Systems Section -->
+            <section id="systems" class="s-section">
+                <div class="s-section-content">
+                    <h2 class="s-font-heading">Growth Systems I Build</h2>
+                    <p class="s-font-body section-intro">
+                        I design and implement high-leverage systems that make growth scalable, measurable, and self-sustaining. These aren't isolated services, they're interconnected infrastructures that align data, automation, and acquisition with your business model.
+                    </p>
+                    
+                    <div class="systems-grid">
+                        <div class="system-card">
+                            <div class="system-number">01</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">Advanced Tracking & Data Infrastructure</h3>
+                                <p class="s-font-body">
+                                    I architect full-funnel tracking systems that give you clean, real-time visibility into performance, attribution, and revenue outcomes. From server-side pipelines to multi-touch models, I eliminate data blind spots and fix attribution at the source.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">GA4 & PostHog</span>
+                                    <span class="tool-tag">Server-side GTM</span>
+                                    <span class="tool-tag">Multi-touch Attribution</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-card">
+                            <div class="system-number">02</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">SEO & Organic Growth Systems</h3>
+                                <p class="s-font-body">
+                                    I build SEO infrastructures that go far beyond rankings, aligning technical foundations, content systems, and structured data to drive sustainable, compounding growth. My work turns organic traffic into a predictable acquisition channel.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">Technical SEO</span>
+                                    <span class="tool-tag">Schema & Structured Data</span>
+                                    <span class="tool-tag">Content Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-card">
+                            <div class="system-number">03</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">Paid Acquisition Systems</h3>
+                                <p class="s-font-body">
+                                    I build scalable paid acquisition systems that align strategy, segmentation, and attribution from the first click to final conversion. My approach blends precision audience targeting, channel-specific creative logic, and performance-focused tracking.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">Google Ads</span>
+                                    <span class="tool-tag">Meta & LinkedIn</span>
+                                    <span class="tool-tag">Crypto Networks</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-card">
+                            <div class="system-number">04</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">Lifecycle & Automation Systems</h3>
+                                <p class="s-font-body">
+                                    I build lifecycle systems that combine CRM logic, marketing automation, and sales enablement into one seamless growth engine. My work transforms scattered tools and workflows into fully integrated systems that react to user behavior.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">HubSpot</span>
+                                    <span class="tool-tag">Customer.io</span>
+                                    <span class="tool-tag">Zapier & Make</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-card">
+                            <div class="system-number">05</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">Conversion Optimization Systems</h3>
+                                <p class="s-font-body">
+                                    I design conversion systems that turn behavioral data into growth levers, combining experimentation, analytics, and journey-level insight to drive measurable improvements across key funnels. I don't guess what works, I validate, refine, and scale it.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">A/B Testing</span>
+                                    <span class="tool-tag">Heatmaps & Recordings</span>
+                                    <span class="tool-tag">Form Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-card">
+                            <div class="system-number">06</div>
+                            <div class="system-content">
+                                <h3 class="s-font-heading">Web3 Growth Systems</h3>
+                                <p class="s-font-body">
+                                    I design acquisition systems built for the complexity of Web3, aligning paid channels, search intent, onboarding, and developer traction into compliant, performance-driven funnels. Whether it's driving token adoption or structuring user journeys across L2s, dApps, or security ecosystems.
+                                </p>
+                                <div class="system-tools">
+                                    <span class="tool-tag">Crypto Ads</span>
+                                    <span class="tool-tag">Developer Acquisition</span>
+                                    <span class="tool-tag">Token Adoption</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stack Section -->
+            <section id="stack" class="s-section">
+                <div class="s-section-content">
+                    <h2 class="s-font-heading">My Tech Stack</h2>
+                    <p class="s-font-body section-intro">
+                        The platforms I use to architect scalable growth systems. While these are some of the most recognized tools in analytics, automation, acquisition, and optimization, my real strength lies in how I connect them.
+                    </p>
+                    
+                    <div class="stack-categories">
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Analytics & Intelligence</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">GA4</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">PostHog</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Hotjar</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Search Console</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Ahrefs</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Data Infrastructure & Automation</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">Segment</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Google Tag Manager</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Zapier & Make</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Attribution & Tracking</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">Keitaro</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Server-side GTM</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Custom Data Layers</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Paid Acquisition</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">Google Ads</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Meta & LinkedIn Ads</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Crypto & Web3 Ads</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Growth Operations</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">HubSpot</span>
+                                    <span class="tool-level">Expert</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">VWO</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Customer.io</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Brevo</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stack-category">
+                            <h3 class="s-font-heading">Development & Content</h3>
+                            <div class="stack-tools">
+                                <div class="tool-item">
+                                    <span class="tool-name">HTML/CSS/JavaScript</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Webflow</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">WordPress</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-name">Notion</span>
+                                    <span class="tool-level">Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="s-section">
+                <div class="s-section-content">
+                    <h2 class="s-font-heading">Kind Words from Clients</h2>
+                    <p class="s-font-body section-intro">What CEOs and founders say about working with me</p>
+                    
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="s-font-body">
+                                    "Kamila is one of the most exceptional individuals I've ever met. I've been working with her on the affiliate marketing program and was impressed by her drive, knowledge and new ideas. She is not only online marketing professional but also easy going and fun person. She is skilful in many areas of online marketing, but what makes her stand out is her constant development and working ethic. I would have no hesitation recommending her to any prospective company who wants an intelligent, dedicated and focused marketer to bring them superb results."
+                                </p>
+                            </div>
+                            <div class="testimonial-author">
+                                <h4 class="s-font-heading">Karolina Skowron</h4>
+                                <p class="s-font-body">Account Director, Pepperjam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="s-font-body">
+                                    "Kamila is excellent and really lovely to work with. She pitched a clear and targeted strategy and picked up the paid media activity for bedsonboard.com amazingly quickly, minimising and handover/down time. She was quick to offer a strategy for any new idea I threw at her and of course lived by a test first philosophy that I respected. I'd recommend Kamila for any brands looking for clear, focused and highly engaged growth marketing."
+                                </p>
+                            </div>
+                            <div class="testimonial-author">
+                                <h4 class="s-font-heading">Tim Ludlow</h4>
+                                <p class="s-font-body">CEO, Beds on Board</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="s-font-body">
+                                    "Working with Kamila and her team has been great from the start. Kamila works very independent and proactive which is exactly what we were looking for. We were able to outsource the online growth aspect fully to her and she's following up on every required task whilst keeping us updated. Working with her feels like she's part of our team and she is great at building a connection with our employees. We're extremely happy with the achieved growth so far and we cannot wait to see the next results!"
+                                </p>
+                            </div>
+                            <div class="testimonial-author">
+                                <h4 class="s-font-heading">Emily Garcia</h4>
+                                <p class="s-font-body">Founder, Mapiac</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="s-section">
+                <div class="s-section-content">
+                    <h2 class="s-font-heading">Contact</h2>
+                    <p class="s-font-body section-intro">Let's build something together</p>
+                    
+                    <div class="contact-content">
+                        <div class="contact-description">
+                            <p class="s-font-body">
+                                Ready to turn your growth challenges into scalable systems? 
+                                Let's discuss how I can help architect your next breakthrough.
+                            </p>
+                        </div>
+                        
+                        <div class="contact-methods">
+                            <a href="mailto:hello@kamilalipska.com" class="contact-method">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">hello@kamilalipska.com</span>
+                                </div>
+                            </a>
+                            
+                            <a href="https://linkedin.com/in/kamilalipska" class="contact-method" target="_blank">
+                                <div class="contact-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">LinkedIn</span>
+                                    <span class="contact-value">Connect with me</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="cta-section">
+                            <a href="mailto:hello@kamilalipska.com" class="s-common-button s-font-button">Start a Project</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <!-- Scripts -->
