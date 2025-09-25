@@ -567,7 +567,7 @@ body {
 /* Hero Section */
 .hero {
     padding: var(--space-24) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .hero-container {
@@ -656,7 +656,7 @@ body {
 /* Services Section */
 .services {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
     position: relative;
 }
 
@@ -790,7 +790,7 @@ body {
 /* About Section */
 .about {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
     position: relative;
 }
 
@@ -896,7 +896,7 @@ body {
 /* Systems Section */
 .systems {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .systems-container {
@@ -984,7 +984,7 @@ body {
 /* Stack Section */
 .stack {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .stack-container {
@@ -1058,7 +1058,7 @@ body {
 /* Blog Section */
 .blog {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .blog-container {
@@ -1147,7 +1147,7 @@ body {
 /* Testimonials Section */
 .testimonials {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .testimonials-container {
@@ -1201,7 +1201,7 @@ body {
 /* Contact Section */
 .contact {
     padding: var(--space-20) 0;
-    background: var(--background);
+    background: transparent;
 }
 
 .contact-container {
@@ -1287,7 +1287,7 @@ body {
 /* Footer */
 .footer {
     padding: var(--space-12) 0;
-    background: var(--background);
+    background: transparent;
     border-top: 1px solid var(--border);
 }
 
