@@ -1,0 +1,27 @@
+{
+  "name": "kamilalipska-website",
+  "version": "1.0.0",
+  "description": "Kamila Lipska's personal website - Growth Systems Architect",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "growth",
+    "marketing",
+    "web3",
+    "saas",
+    "systems",
+    "architecture"
+  ],
+  "author": "Kamila Lipska",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
