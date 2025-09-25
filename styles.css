@@ -47,28 +47,32 @@ body {
     line-height: 1.6;
     color: var(--foreground);
     background: 
-        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.06) 0%, transparent 50%),
-        linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    animation: backgroundShift 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 20%, rgba(128, 128, 128, 0.03) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(128, 128, 128, 0.025) 0%, transparent 60%),
+        radial-gradient(circle at 40% 60%, rgba(128, 128, 128, 0.02) 0%, transparent 60%),
+        radial-gradient(circle at 60% 30%, rgba(128, 128, 128, 0.015) 0%, transparent 60%),
+        linear-gradient(135deg, #fafafa 0%, #f8f8f8 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    animation: backgroundShift 30s ease-in-out infinite;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes backgroundShift {
     0%, 100% {
-        background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+        background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%, 0% 0%;
     }
-    25% {
-        background-position: 100% 0%, 0% 100%, 25% 75%, 0% 0%;
+    20% {
+        background-position: 30% 20%, 70% 80%, 20% 60%, 80% 40%, 0% 0%;
     }
-    50% {
-        background-position: 100% 100%, 0% 0%, 75% 25%, 0% 0%;
+    40% {
+        background-position: 60% 40%, 40% 60%, 80% 20%, 20% 80%, 0% 0%;
     }
-    75% {
-        background-position: 0% 100%, 100% 0%, 50% 50%, 0% 0%;
+    60% {
+        background-position: 80% 60%, 20% 40%, 40% 80%, 60% 20%, 0% 0%;
+    }
+    80% {
+        background-position: 50% 80%, 50% 20%, 60% 40%, 40% 60%, 0% 0%;
     }
 }
 
@@ -202,12 +206,12 @@ body {
     z-index: -1;
     overflow: hidden;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 60% 30%, rgba(233, 30, 99, 0.02) 0%, transparent 50%),
-        radial-gradient(circle at 10% 70%, rgba(233, 30, 99, 0.03) 0%, transparent 50%);
-    animation: backgroundPulse 25s ease-in-out infinite;
+        radial-gradient(circle at 20% 20%, rgba(128, 128, 128, 0.02) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(128, 128, 128, 0.015) 0%, transparent 70%),
+        radial-gradient(circle at 40% 60%, rgba(128, 128, 128, 0.01) 0%, transparent 70%),
+        radial-gradient(circle at 60% 30%, rgba(128, 128, 128, 0.008) 0%, transparent 70%),
+        radial-gradient(circle at 10% 70%, rgba(128, 128, 128, 0.012) 0%, transparent 70%);
+    animation: backgroundPulse 35s ease-in-out infinite;
 }
 
 @keyframes backgroundPulse {
@@ -267,22 +271,22 @@ body {
 /* Connection Lines */
 .connection-line {
     position: absolute;
-    background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-    height: 2px;
-    opacity: 0.6;
-    animation: lineFlow 8s ease-in-out infinite;
-    box-shadow: 0 0 15px rgba(233, 30, 99, 0.6);
+    background: linear-gradient(90deg, transparent, rgba(128, 128, 128, 0.3), transparent);
+    height: 1px;
+    opacity: 0.4;
+    animation: lineFlow 12s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
     border-radius: 1px;
 }
 
-.line-1 { width: 100px; top: 20%; left: 20%; animation-delay: 0s; }
-.line-2 { width: 80px; top: 40%; right: 25%; animation-delay: 2s; }
-.line-3 { width: 120px; top: 60%; left: 30%; animation-delay: 4s; }
-.line-4 { width: 90px; top: 80%; right: 35%; animation-delay: 6s; }
-.line-5 { width: 70px; top: 30%; left: 50%; animation-delay: 8s; }
-.line-6 { width: 90px; top: 50%; right: 20%; animation-delay: 10s; }
-.line-7 { width: 60px; top: 70%; left: 40%; animation-delay: 12s; }
-.line-8 { width: 80px; top: 90%; right: 40%; animation-delay: 14s; }
+.line-1 { width: 200px; top: 15%; left: 10%; animation-delay: 0s; }
+.line-2 { width: 180px; top: 35%; right: 15%; animation-delay: 3s; }
+.line-3 { width: 220px; top: 55%; left: 20%; animation-delay: 6s; }
+.line-4 { width: 160px; top: 75%; right: 25%; animation-delay: 9s; }
+.line-5 { width: 140px; top: 25%; left: 40%; animation-delay: 12s; }
+.line-6 { width: 190px; top: 45%; right: 10%; animation-delay: 15s; }
+.line-7 { width: 120px; top: 65%; left: 30%; animation-delay: 18s; }
+.line-8 { width: 170px; top: 85%; right: 30%; animation-delay: 21s; }
 
 @keyframes lineFlow {
     0%, 100% {
@@ -456,17 +460,76 @@ body {
 /* Data Streams */
 .data-stream {
     position: absolute;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(180deg, transparent, var(--magenta), transparent);
-    opacity: 0.4;
-    animation: dataFlow 6s linear infinite;
-    box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+    width: 1px;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, rgba(128, 128, 128, 0.2), transparent);
+    opacity: 0.3;
+    animation: dataFlow 10s linear infinite;
+    box-shadow: 0 0 6px rgba(128, 128, 128, 0.2);
 }
 
-.stream-1 { top: 0%; left: 25%; animation-delay: 0s; }
-.stream-2 { top: 0%; right: 30%; animation-delay: 1.5s; }
-.stream-3 { top: 0%; left: 60%; animation-delay: 3s; }
+.stream-1 { top: 0%; left: 20%; animation-delay: 0s; }
+.stream-2 { top: 0%; right: 25%; animation-delay: 2.5s; }
+.stream-3 { top: 0%; left: 55%; animation-delay: 5s; }
+
+/* Complex System Shapes */
+.system-shape {
+    position: absolute;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    opacity: 0.4;
+    animation: systemMerge 25s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.1);
+}
+
+.shape-system-1 {
+    width: 300px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    border-radius: 50% 20% 30% 40%;
+    animation-delay: 0s;
+}
+
+.shape-system-2 {
+    width: 250px;
+    height: 180px;
+    top: 40%;
+    right: 8%;
+    border-radius: 30% 50% 20% 60%;
+    animation-delay: 8s;
+}
+
+.shape-system-3 {
+    width: 280px;
+    height: 160px;
+    top: 70%;
+    left: 10%;
+    border-radius: 40% 30% 50% 20%;
+    animation-delay: 16s;
+}
+
+@keyframes systemMerge {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1) rotate(0deg);
+        border-color: rgba(128, 128, 128, 0.1);
+    }
+    25% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(90deg);
+        border-color: rgba(128, 128, 128, 0.2);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9) rotate(180deg);
+        border-color: rgba(128, 128, 128, 0.15);
+    }
+    75% {
+        opacity: 0.7;
+        transform: scale(1.05) rotate(270deg);
+        border-color: rgba(128, 128, 128, 0.25);
+    }
+}
 
 @keyframes dataFlow {
     0% {
@@ -488,72 +551,76 @@ body {
 /* Web3 Network Connections */
 .network-connection {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    background: var(--magenta);
+    width: 2px;
+    height: 2px;
+    background: rgba(128, 128, 128, 0.4);
     border-radius: 50%;
-    opacity: 0.8;
-    animation: networkPulse 3s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(233, 30, 99, 0.8);
+    opacity: 0.6;
+    animation: networkPulse 8s ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(128, 128, 128, 0.3);
 }
 
-.connection-1 { top: 15%; left: 30%; animation-delay: 0s; }
-.connection-2 { top: 35%; right: 25%; animation-delay: 0.5s; }
-.connection-3 { top: 55%; left: 20%; animation-delay: 1s; }
-.connection-4 { top: 75%; right: 40%; animation-delay: 1.5s; }
-.connection-5 { top: 25%; left: 70%; animation-delay: 2s; }
-.connection-6 { top: 65%; right: 15%; animation-delay: 2.5s; }
+.connection-1 { top: 10%; left: 25%; animation-delay: 0s; }
+.connection-2 { top: 30%; right: 20%; animation-delay: 2s; }
+.connection-3 { top: 50%; left: 15%; animation-delay: 4s; }
+.connection-4 { top: 70%; right: 35%; animation-delay: 6s; }
+.connection-5 { top: 20%; left: 65%; animation-delay: 8s; }
+.connection-6 { top: 60%; right: 10%; animation-delay: 10s; }
 
 @keyframes networkPulse {
     0%, 100% {
-        opacity: 0.3;
+        opacity: 0.2;
         transform: scale(1);
-        box-shadow: 0 0 10px rgba(233, 30, 99, 0.4);
+        box-shadow: 0 0 6px rgba(128, 128, 128, 0.2);
     }
     50% {
-        opacity: 1;
-        transform: scale(3);
-        box-shadow: 0 0 30px rgba(233, 30, 99, 1);
+        opacity: 0.8;
+        transform: scale(4);
+        box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
     }
 }
 
 /* Blockchain Data Flow */
 .blockchain-flow {
     position: absolute;
-    width: 3px;
-    height: 3px;
-    background: var(--magenta);
+    width: 2px;
+    height: 2px;
+    background: rgba(128, 128, 128, 0.3);
     border-radius: 50%;
-    opacity: 0.7;
-    animation: blockchainMove 12s linear infinite;
-    box-shadow: 0 0 15px rgba(233, 30, 99, 0.7);
+    opacity: 0.5;
+    animation: blockchainMove 20s linear infinite;
+    box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
 }
 
-.flow-1 { top: 10%; left: 10%; animation-delay: 0s; }
-.flow-2 { top: 30%; right: 20%; animation-delay: 3s; }
-.flow-3 { top: 50%; left: 15%; animation-delay: 6s; }
-.flow-4 { top: 70%; right: 30%; animation-delay: 9s; }
+.flow-1 { top: 5%; left: 5%; animation-delay: 0s; }
+.flow-2 { top: 25%; right: 15%; animation-delay: 5s; }
+.flow-3 { top: 45%; left: 10%; animation-delay: 10s; }
+.flow-4 { top: 65%; right: 25%; animation-delay: 15s; }
 
 @keyframes blockchainMove {
     0% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.7;
+        opacity: 0.3;
     }
-    25% {
-        transform: translate(50px, 30px) scale(1.5);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(100px, 60px) scale(1);
-        opacity: 0.5;
-    }
-    75% {
-        transform: translate(150px, 90px) scale(1.2);
+    20% {
+        transform: translate(80px, 50px) scale(2);
         opacity: 0.8;
     }
+    40% {
+        transform: translate(160px, 100px) scale(1);
+        opacity: 0.4;
+    }
+    60% {
+        transform: translate(240px, 150px) scale(1.5);
+        opacity: 0.6;
+    }
+    80% {
+        transform: translate(320px, 200px) scale(1.2);
+        opacity: 0.5;
+    }
     100% {
-        transform: translate(200px, 120px) scale(1);
-        opacity: 0.7;
+        transform: translate(400px, 250px) scale(1);
+        opacity: 0.3;
     }
 }
 
