@@ -155,13 +155,14 @@ body {
 
 .btn-outline {
     background: transparent;
-    color: var(--foreground);
+    color: var(--magenta);
     border: 2px solid var(--magenta);
 }
 
 .btn-outline:hover {
-    background: var(--magenta);
-    color: var(--background);
+    background: transparent;
+    color: var(--magenta-dark);
+    border-color: var(--magenta-dark);
 }
 
 .btn-large {
@@ -481,7 +482,7 @@ body {
     padding: 0 var(--space-6);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
+    gap: var(--space-4);
     align-items: center;
 }
 
