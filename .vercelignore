@@ -1,5 +1,17 @@
-# Ignore unnecessary files for deployment
-Architecting Scalable Growth for Web3 & SaaS.html
-Vercel_ Build and deploy the best web experiences with the AI Cloud.html
-website_content.md
-logo.svg
+# Ignore development files
+node_modules/
+.git/
+.github/
+scripts/
+cache/
+*.log
+.DS_Store
+
+# Keep these files for deployment
+!index.html
+!styles.css
+!script.js
+!avatar.png
+!api/
+!vercel.json
+!package.json
