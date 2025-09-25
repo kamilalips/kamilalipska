@@ -46,14 +46,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--foreground);
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(128, 128, 128, 0.03) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(128, 128, 128, 0.025) 0%, transparent 60%),
-        radial-gradient(circle at 40% 60%, rgba(128, 128, 128, 0.02) 0%, transparent 60%),
-        radial-gradient(circle at 60% 30%, rgba(128, 128, 128, 0.015) 0%, transparent 60%),
-        linear-gradient(135deg, #fafafa 0%, #f8f8f8 100%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    animation: backgroundShift 30s ease-in-out infinite;
+    background: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -205,13 +198,7 @@ body {
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(128, 128, 128, 0.02) 0%, transparent 70%),
-        radial-gradient(circle at 80% 80%, rgba(128, 128, 128, 0.015) 0%, transparent 70%),
-        radial-gradient(circle at 40% 60%, rgba(128, 128, 128, 0.01) 0%, transparent 70%),
-        radial-gradient(circle at 60% 30%, rgba(128, 128, 128, 0.008) 0%, transparent 70%),
-        radial-gradient(circle at 10% 70%, rgba(128, 128, 128, 0.012) 0%, transparent 70%);
-    animation: backgroundPulse 35s ease-in-out infinite;
+    background: transparent;
 }
 
 @keyframes backgroundPulse {
@@ -226,11 +213,11 @@ body {
 /* Floating Particles */
 .floating-particle {
     position: absolute;
-    background: var(--magenta);
+    background: rgba(128, 128, 128, 0.1);
     border-radius: 50%;
-    opacity: 0.9;
-    animation: particleFloat 8s ease-in-out infinite;
-    box-shadow: 0 0 50px rgba(233, 30, 99, 1);
+    opacity: 0.3;
+    animation: particleFloat 15s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.2);
 }
 
 .particle-1 { width: 8px; height: 8px; top: 10%; left: 15%; animation-delay: 0s; }
@@ -302,10 +289,10 @@ body {
 /* Geometric Shapes */
 .geometric-shape {
     position: absolute;
-    border: 4px solid var(--magenta);
-    opacity: 0.6;
-    animation: shapeRotate 12s linear infinite;
-    box-shadow: 0 0 25px rgba(233, 30, 99, 0.7);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    opacity: 0.2;
+    animation: shapeRotate 20s linear infinite;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.1);
 }
 
 .shape-1 {
@@ -388,13 +375,13 @@ body {
 /* Web3 Network Nodes */
 .network-node {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--magenta);
+    width: 6px;
+    height: 6px;
+    background: rgba(128, 128, 128, 0.2);
     border-radius: 50%;
-    opacity: 0.7;
-    animation: nodePulse 2.5s ease-in-out infinite;
-    box-shadow: 0 0 25px rgba(233, 30, 99, 0.8);
+    opacity: 0.3;
+    animation: nodePulse 8s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
 }
 
 .node-1 { top: 12%; left: 25%; animation-delay: 0s; }
@@ -424,13 +411,13 @@ body {
 /* Blockchain Blocks */
 .blockchain-block {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(45deg, var(--magenta), var(--magenta-light));
-    border-radius: 4px;
-    opacity: 0.3;
-    animation: blockMine 8s ease-in-out infinite;
-    box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+    width: 12px;
+    height: 12px;
+    background: rgba(128, 128, 128, 0.15);
+    border-radius: 2px;
+    opacity: 0.2;
+    animation: blockMine 15s ease-in-out infinite;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.1);
 }
 
 .block-1 { top: 25%; left: 30%; animation-delay: 0s; }
@@ -472,62 +459,73 @@ body {
 .stream-2 { top: 0%; right: 25%; animation-delay: 2.5s; }
 .stream-3 { top: 0%; left: 55%; animation-delay: 5s; }
 
-/* Complex System Shapes */
-.system-shape {
+/* Connected System Networks */
+.system-network {
     position: absolute;
-    border: 1px solid rgba(128, 128, 128, 0.15);
-    opacity: 0.4;
-    animation: systemMerge 25s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.08);
+    opacity: 0.15;
+    animation: networkFlow 30s ease-in-out infinite;
 }
 
-.shape-system-1 {
-    width: 300px;
-    height: 200px;
-    top: 10%;
-    left: 5%;
-    border-radius: 50% 20% 30% 40%;
+.network-1 {
+    width: 400px;
+    height: 300px;
+    top: 5%;
+    left: 2%;
+    border-radius: 50%;
     animation-delay: 0s;
 }
 
-.shape-system-2 {
-    width: 250px;
-    height: 180px;
-    top: 40%;
-    right: 8%;
-    border-radius: 30% 50% 20% 60%;
-    animation-delay: 8s;
+.network-2 {
+    width: 350px;
+    height: 250px;
+    top: 35%;
+    right: 3%;
+    border-radius: 40% 60% 30% 70%;
+    animation-delay: 10s;
 }
 
-.shape-system-3 {
-    width: 280px;
-    height: 160px;
-    top: 70%;
-    left: 10%;
-    border-radius: 40% 30% 50% 20%;
-    animation-delay: 16s;
+.network-3 {
+    width: 380px;
+    height: 280px;
+    top: 65%;
+    left: 5%;
+    border-radius: 60% 40% 70% 30%;
+    animation-delay: 20s;
 }
 
-@keyframes systemMerge {
+@keyframes networkFlow {
     0%, 100% {
-        opacity: 0.2;
-        transform: scale(1) rotate(0deg);
-        border-color: rgba(128, 128, 128, 0.1);
-    }
-    25% {
-        opacity: 0.6;
-        transform: scale(1.1) rotate(90deg);
-        border-color: rgba(128, 128, 128, 0.2);
+        opacity: 0.1;
+        transform: scale(1);
     }
     50% {
-        opacity: 0.4;
-        transform: scale(0.9) rotate(180deg);
-        border-color: rgba(128, 128, 128, 0.15);
+        opacity: 0.25;
+        transform: scale(1.05);
     }
-    75% {
-        opacity: 0.7;
-        transform: scale(1.05) rotate(270deg);
-        border-color: rgba(128, 128, 128, 0.25);
+}
+
+/* System Connection Lines */
+.system-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(128, 128, 128, 0.1), transparent);
+    opacity: 0.1;
+    animation: connectionFlow 25s ease-in-out infinite;
+}
+
+.conn-1 { width: 300px; top: 20%; left: 30%; animation-delay: 0s; }
+.conn-2 { width: 250px; top: 50%; right: 25%; animation-delay: 8s; }
+.conn-3 { width: 280px; top: 80%; left: 35%; animation-delay: 16s; }
+
+@keyframes connectionFlow {
+    0%, 100% {
+        opacity: 0.05;
+        transform: scaleX(0.5);
+    }
+    50% {
+        opacity: 0.15;
+        transform: scaleX(1);
     }
 }
 
