@@ -153,6 +153,17 @@ body {
     border-color: var(--magenta);
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--foreground);
+    border: 2px solid var(--magenta);
+}
+
+.btn-outline:hover {
+    background: var(--magenta);
+    color: var(--background);
+}
+
 .btn-large {
     padding: var(--space-4) var(--space-8);
     font-size: 16px;
@@ -497,6 +508,17 @@ body {
     transform: scaleX(1);
 }
 
+/* Remove default highlighting from Web3 and AI cards */
+.web3-card::before,
+.ai-card::before {
+    display: none;
+}
+
+.web3-card:hover::before,
+.ai-card:hover::before {
+    display: block;
+}
+
 .service-icon {
     display: flex;
     align-items: center;
@@ -773,7 +795,38 @@ body {
     margin-bottom: var(--space-6);
 }
 
-.about-content p {
+.about-hero {
+    margin-bottom: var(--space-12);
+    text-align: center;
+}
+
+.about-hero-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.highlight {
+    color: var(--magenta);
+    font-weight: 700;
+}
+
+.about-story {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--foreground);
+    margin-bottom: var(--space-6);
+    font-weight: 500;
+}
+
+.about-expertise {
     font-size: 1.125rem;
     line-height: 1.7;
     color: var(--muted);
@@ -997,6 +1050,23 @@ body {
     border-radius: 12px;
     padding: var(--space-6);
     transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.blog-image {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(135deg, var(--magenta-light), var(--magenta));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+.blog-image-placeholder {
+    font-size: 2rem;
+    opacity: 0.8;
 }
 
 .blog-card:hover {
