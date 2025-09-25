@@ -155,14 +155,14 @@ body {
 
 .btn-outline {
     background: transparent;
-    color: var(--magenta);
-    border: 2px solid var(--magenta);
+    color: var(--foreground);
+    border: 2px solid var(--border);
 }
 
 .btn-outline:hover {
     background: transparent;
-    color: var(--magenta-dark);
-    border-color: var(--magenta-dark);
+    color: var(--magenta);
+    border-color: var(--magenta);
 }
 
 .btn-large {
@@ -482,7 +482,7 @@ body {
     padding: 0 var(--space-6);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
+    gap: var(--space-2);
     align-items: center;
 }
 
@@ -491,7 +491,7 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: var(--space-6);
