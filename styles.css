@@ -180,9 +180,11 @@ body {
     z-index: -1;
     overflow: hidden;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 30%, rgba(233, 30, 99, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 10% 70%, rgba(233, 30, 99, 0.12) 0%, transparent 50%);
     animation: backgroundPulse 20s ease-in-out infinite;
 }
 
@@ -200,9 +202,9 @@ body {
     position: absolute;
     background: var(--magenta);
     border-radius: 50%;
-    opacity: 0.6;
-    animation: particleFloat 10s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(233, 30, 99, 0.8);
+    opacity: 0.9;
+    animation: particleFloat 8s ease-in-out infinite;
+    box-shadow: 0 0 50px rgba(233, 30, 99, 1);
 }
 
 .particle-1 { width: 8px; height: 8px; top: 10%; left: 15%; animation-delay: 0s; }
