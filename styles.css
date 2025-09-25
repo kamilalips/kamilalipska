@@ -537,6 +537,97 @@ body {
     font-family: var(--font-mono);
 }
 
+/* Services Overview */
+.services-overview {
+    margin-bottom: var(--space-2xl);
+}
+
+.services-overview h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.service-card {
+    padding: var(--space-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all var(--transition-normal);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #00d4ff);
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent);
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--accent-light);
+    border-radius: 12px;
+    color: var(--accent);
+    margin: 0 auto var(--space-md);
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    font-size: 0.9rem;
+}
+
+.service-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+
+.service-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
 /* Stack Page */
 .stack-intro {
     margin-bottom: var(--space-2xl);
@@ -547,6 +638,69 @@ body {
     font-size: 1.1rem;
     line-height: 1.7;
     color: var(--text-secondary);
+}
+
+.stack-categories {
+    margin-bottom: var(--space-2xl);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: var(--space-sm);
+    transition: all var(--transition-normal);
+}
+
+.category-header:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    transform: translateX(4px);
+}
+
+.category-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.category-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.tool-tag {
+    padding: 4px 8px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.tool-tag:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.stack-details {
+    margin-top: var(--space-2xl);
+}
+
+.stack-details h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
 }
 
 .stack-grid {
@@ -603,7 +757,7 @@ body {
     margin-bottom: var(--space-sm);
 }
 
-.stack-header h4 {
+.stack-header h5 {
     font-family: var(--font-mono);
     font-size: 1.1rem;
     font-weight: 600;
@@ -887,12 +1041,133 @@ body {
     }
 }
 
+/* Enhanced Hover Effects for Better UX */
+.intro-card,
+.service-card,
+.system-item,
+.stack-item,
+.testimonial-item,
+.update-item {
+    cursor: pointer;
+}
+
+.intro-card:hover,
+.service-card:hover,
+.system-item:hover,
+.stack-item:hover,
+.testimonial-item:hover,
+.update-item:hover {
+    cursor: pointer;
+}
+
+/* Clear Hit Areas - Baymard Guideline #264 */
+.service-card,
+.intro-card a,
+.system-item,
+.stack-item,
+.testimonial-item {
+    position: relative;
+}
+
+.service-card::after,
+.intro-card a::after,
+.system-item::after,
+.stack-item::after,
+.testimonial-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: all var(--transition-normal);
+}
+
+.service-card:hover::after,
+.intro-card a:hover::after,
+.system-item:hover::after,
+.stack-item:hover::after,
+.testimonial-item:hover::after {
+    box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+/* Improved Text Legibility - Baymard Guideline #290 */
+.page-title,
+.page-subtitle,
+.services-overview h2,
+.category-title,
+.stack-details h3 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Better Visual Hierarchy */
+.service-card h3,
+.system-item h3,
+.stack-item h5 {
+    position: relative;
+}
+
+.service-card h3::after,
+.system-item h3::after,
+.stack-item h5::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width var(--transition-normal);
+}
+
+.service-card:hover h3::after,
+.system-item:hover h3::after,
+.stack-item:hover h5::after {
+    width: 100%;
+}
+
 /* Focus States */
 .nav-item:focus,
 .contact-method:focus,
-.btn:focus {
+.btn:focus,
+.service-card:focus,
+.intro-card:focus,
+.system-item:focus,
+.stack-item:focus,
+.testimonial-item:focus {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+}
+
+/* Mobile Touch Targets */
+@media (max-width: 768px) {
+    .service-card,
+    .intro-card,
+    .system-item,
+    .stack-item,
+    .testimonial-item {
+        min-height: 60px;
+        padding: var(--space-lg);
+    }
+    
+    .service-link,
+    .intro-card a {
+        display: block;
+        padding: var(--space-sm);
+        margin-top: var(--space-sm);
+        text-align: center;
+        background: var(--accent-light);
+        border-radius: 6px;
+        transition: all var(--transition-normal);
+    }
+    
+    .service-link:hover,
+    .intro-card a:hover {
+        background: var(--accent);
+        color: white;
+    }
 }
 
 /* Print Styles */

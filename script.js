@@ -67,6 +67,30 @@ document.addEventListener('DOMContentLoaded', function() {
             navigateToPage('home');
         }
     });
+
+    // Handle service card clicks for better UX
+    document.querySelectorAll('.service-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetPage = href.substring(1);
+                if (keyboardMap[Object.keys(keyboardMap).find(key => keyboardMap[key] === targetPage)]) {
+                    navigateToPage(targetPage);
+                }
+            }
+        });
+    });
+
+    // Add click handlers to service cards for better UX
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const link = this.querySelector('.service-link');
+            if (link && !e.target.closest('.service-link')) {
+                link.click();
+            }
+        });
+    });
     
     // Intersection Observer for scroll animations
     const observerOptions = {
