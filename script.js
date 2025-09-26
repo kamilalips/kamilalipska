@@ -235,7 +235,7 @@ class VantaNetwork {
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                color: 0x888888,
+                color: 0xaaaaaa,
                 backgroundColor: 0xffffff,
                 backgroundAlpha: 0.0,
                 points: 15.00,
