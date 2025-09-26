@@ -396,3 +396,72 @@ class AnimationToggle {
 document.addEventListener('DOMContentLoaded', () => {
     new AnimationToggle();
 });
+
+// Mobile Menu Functionality
+class MobileMenu {
+    constructor() {
+        this.menuToggle = document.getElementById('mobileMenuToggle');
+        this.mobileNav = document.getElementById('mobileNav');
+        this.mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        this.isOpen = false;
+        
+        this.init();
+    }
+    
+    init() {
+        if (!this.menuToggle || !this.mobileNav) return;
+        
+        // Toggle menu on button click
+        this.menuToggle.addEventListener('click', () => {
+            this.toggleMenu();
+        });
+        
+        // Close menu when clicking on links
+        this.mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.closeMenu();
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && !this.mobileNav.contains(e.target) && !this.menuToggle.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+    }
+    
+    toggleMenu() {
+        if (this.isOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+    
+    openMenu() {
+        this.isOpen = true;
+        this.menuToggle.classList.add('active');
+        this.mobileNav.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    closeMenu() {
+        this.isOpen = false;
+        this.menuToggle.classList.remove('active');
+        this.mobileNav.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Initialize mobile menu when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new MobileMenu();
+});
