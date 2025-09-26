@@ -217,3 +217,50 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+// Animation Toggle Functionality
+class AnimationToggle {
+    constructor() {
+        this.currentAnimation = 1;
+        this.animation1 = document.querySelector('.global-visual-elements.animation-1');
+        this.animation2 = document.querySelector('.global-visual-elements.animation-2');
+        this.toggleText = document.getElementById('animationToggleText');
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.toggleText) {
+            this.toggleText.addEventListener('click', () => {
+                this.switchAnimation();
+            });
+        }
+    }
+    
+    switchAnimation() {
+        if (this.currentAnimation === 1) {
+            // Switch to animation 2 (connected network)
+            this.animation1.classList.remove('active');
+            this.animation2.classList.add('active');
+            this.currentAnimation = 2;
+            this.updateToggleText('Clean screen! ;) <span class="click-hint">click to change animation</span>');
+        } else {
+            // Switch to animation 1 (original grey dots)
+            this.animation2.classList.remove('active');
+            this.animation1.classList.add('active');
+            this.currentAnimation = 1;
+            this.updateToggleText('Is your screen dirty? ;) <span class="click-hint">click to change animation</span>');
+        }
+    }
+    
+    updateToggleText(newText) {
+        if (this.toggleText) {
+            this.toggleText.innerHTML = newText;
+        }
+    }
+}
+
+// Initialize animation toggle when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new AnimationToggle();
+});

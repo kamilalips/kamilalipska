@@ -58,23 +58,29 @@
         </div>
     </header>
 
-    <!-- Global Visual Elements -->
-    <div class="global-visual-elements">
-        <!-- System Nodes -->
-        <div class="system-node node-1"></div>
-        <div class="system-node node-2"></div>
-        <div class="system-node node-3"></div>
-        <div class="system-node node-4"></div>
-        <div class="system-node node-5"></div>
-        <div class="system-node node-6"></div>
-        <div class="system-node node-7"></div>
-        <div class="system-node node-8"></div>
+    <!-- Global Visual Elements - Animation 1 (Original Grey Dots) -->
+    <div class="global-visual-elements animation-1 active">
+        <!-- System Architecture Modules -->
+        <div class="system-module module-1"></div>
+        <div class="system-module module-2"></div>
+        <div class="system-module module-3"></div>
+        <div class="system-module module-4"></div>
+        <div class="system-module module-5"></div>
+        <div class="system-module module-6"></div>
+        <div class="system-module module-7"></div>
+        <div class="system-module module-8"></div>
         
-        <!-- Connection lines -->
+        <!-- System Architecture Connections -->
         <div class="connection-line line-1"></div>
         <div class="connection-line line-2"></div>
         <div class="connection-line line-3"></div>
         <div class="connection-line line-4"></div>
+        <div class="connection-line line-5"></div>
+        <div class="connection-line line-6"></div>
+        <div class="connection-line line-v1"></div>
+        <div class="connection-line line-v2"></div>
+        <div class="connection-line line-v3"></div>
+        <div class="connection-line line-v4"></div>
         
         <!-- Geometric shapes -->
         <div class="geometric-shape shape-1"></div>
@@ -132,6 +138,58 @@
         <div class="system-connection conn-3"></div>
     </div>
 
+    <!-- Global Visual Elements - Animation 2 (Connected Network) -->
+    <div class="global-visual-elements animation-2">
+        <!-- Connected Network Nodes -->
+        <div class="connected-node cn-1"></div>
+        <div class="connected-node cn-2"></div>
+        <div class="connected-node cn-3"></div>
+        <div class="connected-node cn-4"></div>
+        <div class="connected-node cn-5"></div>
+        <div class="connected-node cn-6"></div>
+        <div class="connected-node cn-7"></div>
+        <div class="connected-node cn-8"></div>
+        <div class="connected-node cn-9"></div>
+        <div class="connected-node cn-10"></div>
+        <div class="connected-node cn-11"></div>
+        <div class="connected-node cn-12"></div>
+        <div class="connected-node cn-13"></div>
+        <div class="connected-node cn-14"></div>
+        <div class="connected-node cn-15"></div>
+        <div class="connected-node cn-16"></div>
+        <div class="connected-node cn-17"></div>
+        <div class="connected-node cn-18"></div>
+        <div class="connected-node cn-19"></div>
+        <div class="connected-node cn-20"></div>
+        
+        <!-- Network Connections -->
+        <div class="network-line nl-1"></div>
+        <div class="network-line nl-2"></div>
+        <div class="network-line nl-3"></div>
+        <div class="network-line nl-4"></div>
+        <div class="network-line nl-5"></div>
+        <div class="network-line nl-6"></div>
+        <div class="network-line nl-7"></div>
+        <div class="network-line nl-8"></div>
+        <div class="network-line nl-9"></div>
+        <div class="network-line nl-10"></div>
+        <div class="network-line nl-11"></div>
+        <div class="network-line nl-12"></div>
+        <div class="network-line nl-13"></div>
+        <div class="network-line nl-14"></div>
+        <div class="network-line nl-15"></div>
+        <div class="network-line nl-16"></div>
+        <div class="network-line nl-17"></div>
+        <div class="network-line nl-18"></div>
+        <div class="network-line nl-19"></div>
+        <div class="network-line nl-20"></div>
+        <div class="network-line nl-21"></div>
+        <div class="network-line nl-22"></div>
+        <div class="network-line nl-23"></div>
+        <div class="network-line nl-24"></div>
+        <div class="network-line nl-25"></div>
+    </div>
+
     <!-- Main Content -->
     <main class="main">
         <!-- Hero Section -->
@@ -153,6 +211,15 @@
                 <div class="hero-visual">
                     <img src="avatar.svg" alt="Kamila Lipska" class="profile-image">
                 </div>
+            </div>
+        </section>
+
+        <!-- Interactive Animation Toggle -->
+        <section class="animation-toggle">
+            <div class="animation-toggle-container">
+                <p class="animation-toggle-text" id="animationToggleText">
+                    Is your screen dirty? ;) <span class="click-hint">click to change animation</span>
+                </p>
             </div>
         </section>
 
