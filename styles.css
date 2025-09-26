@@ -545,8 +545,8 @@ body {
     }
 }
 
-/* VANTA.NET Style Network Animation (Animation 2) */
-#network-canvas {
+/* VANTA.NET Network Animation (Animation 2) */
+#vanta-network {
     position: absolute;
     top: 0;
     left: 0;
