@@ -230,6 +230,14 @@ class AnimationToggle {
     }
     
     init() {
+        // Ensure animation 1 is visible by default
+        if (this.animation1) {
+            this.animation1.style.opacity = '1';
+        }
+        if (this.animation2) {
+            this.animation2.style.opacity = '0';
+        }
+        
         if (this.toggleText) {
             this.toggleText.addEventListener('click', () => {
                 this.switchAnimation();
@@ -239,15 +247,15 @@ class AnimationToggle {
     
     switchAnimation() {
         if (this.currentAnimation === 1) {
-            // Switch to animation 2 (connected network)
-            this.animation1.classList.remove('active');
-            this.animation2.classList.add('active');
+            // Switch to animation 2 (geometric mesh network)
+            if (this.animation1) this.animation1.style.opacity = '0';
+            if (this.animation2) this.animation2.style.opacity = '1';
             this.currentAnimation = 2;
             this.updateToggleText('Clean screen! ;) <span class="click-hint">click to change animation</span>');
         } else {
             // Switch to animation 1 (original grey dots)
-            this.animation2.classList.remove('active');
-            this.animation1.classList.add('active');
+            if (this.animation2) this.animation2.style.opacity = '0';
+            if (this.animation1) this.animation1.style.opacity = '1';
             this.currentAnimation = 1;
             this.updateToggleText('Is your screen dirty? ;) <span class="click-hint">click to change animation</span>');
         }
