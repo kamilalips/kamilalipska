@@ -77,7 +77,10 @@ class BlogFetcher {
         
         this.blogContainer.innerHTML = '';
         
-        posts.forEach(post => {
+        // Only show the last 6 posts
+        const recentPosts = posts.slice(-6);
+        
+        recentPosts.forEach(post => {
             const article = document.createElement('article');
             article.className = 'blog-card';
             
