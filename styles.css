@@ -642,6 +642,12 @@ body {
     color: var(--foreground);
 }
 
+.rotating-title {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
 .hero-description {
     font-size: 1.25rem;
     line-height: 1.6;
