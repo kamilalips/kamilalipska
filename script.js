@@ -218,6 +218,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// VANTA.NET Style Network Animation
+class NetworkAnimation {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.nodes = [];
+        this.connections = [];
+        this.mouse = { x: 0, y: 0 };
+        this.animationId = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.resize();
+        this.createNodes();
+        this.animate();
+        
+        window.addEventListener('resize', () => this.resize());
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        });
+    }
+    
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+    
+    createNodes() {
+        const nodeCount = 50;
+        this.nodes = [];
+        
+        for (let i = 0; i < nodeCount; i++) {
+            this.nodes.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1
+            });
+        }
+    }
+    
+    updateNodes() {
+        this.nodes.forEach(node => {
+            node.x += node.vx;
+            node.y += node.vy;
+            
+            // Bounce off edges
+            if (node.x < 0 || node.x > this.canvas.width) node.vx *= -1;
+            if (node.y < 0 || node.y > this.canvas.height) node.vy *= -1;
+            
+            // Keep nodes in bounds
+            node.x = Math.max(0, Math.min(this.canvas.width, node.x));
+            node.y = Math.max(0, Math.min(this.canvas.height, node.y));
+        });
+    }
+    
+    drawConnections() {
+        this.connections = [];
+        
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const opacity = (150 - distance) / 150 * 0.3;
+                    this.ctx.strokeStyle = `rgba(102, 51, 153, ${opacity})`;
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                    this.ctx.stroke();
+                    
+                    this.connections.push({ from: i, to: j, distance });
+                }
+            }
+        }
+    }
+    
+    drawNodes() {
+        this.nodes.forEach(node => {
+            // Mouse interaction
+            const dx = this.mouse.x - node.x;
+            const dy = this.mouse.y - node.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            let radius = node.radius;
+            let opacity = 0.3;
+            
+            if (distance < 100) {
+                radius = node.radius + (100 - distance) / 100 * 2;
+                opacity = 0.3 + (100 - distance) / 100 * 0.4;
+            }
+            
+            this.ctx.fillStyle = `rgba(102, 51, 153, ${opacity})`;
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+    }
+    
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        this.updateNodes();
+        this.drawConnections();
+        this.drawNodes();
+        
+        this.animationId = requestAnimationFrame(() => this.animate());
+    }
+    
+    destroy() {
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
+    }
+}
+
 // Animation Toggle Functionality
 class AnimationToggle {
     constructor() {
@@ -225,6 +348,7 @@ class AnimationToggle {
         this.animation1 = document.querySelector('.global-visual-elements.animation-1');
         this.animation2 = document.querySelector('.global-visual-elements.animation-2');
         this.toggleText = document.getElementById('animationToggleText');
+        this.networkAnimation = null;
         
         this.init();
     }
@@ -247,15 +371,29 @@ class AnimationToggle {
     
     switchAnimation() {
         if (this.currentAnimation === 1) {
-            // Switch to animation 2 (geometric mesh network)
+            // Switch to animation 2 (VANTA.NET style network)
             if (this.animation1) this.animation1.style.opacity = '0';
             if (this.animation2) this.animation2.style.opacity = '1';
+            
+            // Initialize network animation
+            const canvas = document.getElementById('network-canvas');
+            if (canvas && !this.networkAnimation) {
+                this.networkAnimation = new NetworkAnimation(canvas);
+            }
+            
             this.currentAnimation = 2;
             this.updateToggleText('Clean screen! ;) <span class="click-hint">click to change animation</span>');
         } else {
             // Switch to animation 1 (original grey dots)
             if (this.animation2) this.animation2.style.opacity = '0';
             if (this.animation1) this.animation1.style.opacity = '1';
+            
+            // Destroy network animation to save resources
+            if (this.networkAnimation) {
+                this.networkAnimation.destroy();
+                this.networkAnimation = null;
+            }
+            
             this.currentAnimation = 1;
             this.updateToggleText('Is your screen dirty? ;) <span class="click-hint">click to change animation</span>');
         }
