@@ -303,7 +303,7 @@ body {
     background: rgba(128, 128, 128, 0.2);
     border-radius: 50%;
     opacity: 0.3;
-    animation: nodePulse 4s ease-in-out infinite;
+    animation: nodePulse 2s ease-in-out infinite;
     box-shadow: 0 0 8px rgba(128, 128, 128, 0.2);
 }
 

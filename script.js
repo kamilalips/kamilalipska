@@ -235,12 +235,13 @@ class VantaNetwork {
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                color: 0x333333,
+                color: 0x888888,
                 backgroundColor: 0xffffff,
                 backgroundAlpha: 0.0,
-                points: 20.00,
-                maxDistance: 24.00,
-                spacing: 18.00
+                points: 15.00,
+                maxDistance: 20.00,
+                spacing: 15.00,
+                showDots: false
             });
         }
     }
