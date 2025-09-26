@@ -645,6 +645,20 @@ body {
 .rotating-title {
     display: inline-block;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.rotating-title::after {
+    content: '|';
+    color: var(--primary);
+    font-weight: 300;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 

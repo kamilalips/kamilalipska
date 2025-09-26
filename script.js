@@ -158,25 +158,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add typing animation to hero title
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
+// Animated typing effect for rotating titles
+class TypingAnimation {
+    constructor() {
+        this.titles = [
+            'Growth Systems Architect',
+            'Full-Stack Growth Builder', 
+            'Technical Growth Designer'
+        ];
+        this.currentTitleIndex = 0;
+        this.currentCharIndex = 0;
+        this.isDeleting = false;
+        this.typingSpeed = 80;
+        this.deletingSpeed = 40;
+        this.pauseTime = 2500;
+        this.titleElement = document.getElementById('rotatingTitle');
+        this.isRunning = false;
         
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-        // Start typing animation after a short delay
-        setTimeout(typeWriter, 500);
+        this.init();
     }
+    
+    init() {
+        if (!this.titleElement) return;
+        
+        // Start the animation after a short delay
+        setTimeout(() => {
+            this.isRunning = true;
+            this.typeTitle();
+        }, 1000);
+    }
+    
+    typeTitle() {
+        if (!this.isRunning) return;
+        
+        const currentTitle = this.titles[this.currentTitleIndex];
+        
+        if (this.isDeleting) {
+            // Deleting characters
+            this.titleElement.textContent = currentTitle.substring(0, this.currentCharIndex - 1);
+            this.currentCharIndex--;
+            
+            if (this.currentCharIndex === 0) {
+                this.isDeleting = false;
+                this.currentTitleIndex = (this.currentTitleIndex + 1) % this.titles.length;
+                // Brief pause before starting to type the next title
+                setTimeout(() => this.typeTitle(), this.typingSpeed * 2);
+            } else {
+                setTimeout(() => this.typeTitle(), this.deletingSpeed);
+            }
+        } else {
+            // Typing characters
+            this.titleElement.textContent = currentTitle.substring(0, this.currentCharIndex + 1);
+            this.currentCharIndex++;
+            
+            if (this.currentCharIndex === currentTitle.length) {
+                // Finished typing, pause then start deleting
+                setTimeout(() => {
+                    this.isDeleting = true;
+                    this.typeTitle();
+                }, this.pauseTime);
+            } else {
+                // Vary typing speed slightly for more natural feel
+                const speedVariation = Math.random() * 20 - 10; // ±10ms variation
+                setTimeout(() => this.typeTitle(), this.typingSpeed + speedVariation);
+            }
+        }
+    }
+    
+    // Method to stop the animation if needed
+    stop() {
+        this.isRunning = false;
+    }
+    
+    // Method to restart the animation
+    restart() {
+        this.currentTitleIndex = 0;
+        this.currentCharIndex = 0;
+        this.isDeleting = false;
+        this.isRunning = true;
+        this.titleElement.textContent = '';
+        this.typeTitle();
+    }
+}
+
+// Initialize typing animation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new TypingAnimation();
 });
 
 // Add parallax effect to visual elements
