@@ -645,6 +645,10 @@ body {
     line-height: 1.1;
     margin-bottom: var(--space-6);
     color: var(--foreground);
+    height: 5.5rem; /* Fixed height to prevent jumping */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .rotating-title {
@@ -1046,6 +1050,10 @@ body {
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
+}
+
+.systems-mobile {
+    display: none; /* Hide mobile cards on desktop */
 }
 
 .table-header {
@@ -1604,6 +1612,7 @@ body {
     
     .hero-title {
         font-size: 2.5rem;
+        height: 3rem; /* Fixed height for mobile */
     }
     
     
@@ -1634,36 +1643,75 @@ body {
         font-size: 2rem;
     }
     
-    /* Fix mobile table display */
+    /* Mobile table redesign - convert to cards */
     .systems-table {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 8px;
+        display: none; /* Hide table on mobile */
     }
     
-    .table-header,
-    .table-row {
-        grid-template-columns: 150px 200px 120px;
-        min-width: 470px;
+    .systems-mobile {
+        display: block;
+    }
+    
+    .system-card {
+        background: var(--background);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: var(--space-6);
+        margin-bottom: var(--space-6);
+        transition: all 0.2s ease;
+    }
+    
+    .system-card:hover {
+        border-color: var(--foreground);
+        transform: translateY(-2px);
+    }
+    
+    .system-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-4);
+    }
+    
+    .system-card-number {
+        background: var(--primary);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 0.875rem;
+        font-weight: 600;
+        margin-right: var(--space-4);
     }
     
-    .table-cell {
-        padding: var(--space-3);
+    .system-card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--foreground);
+        flex: 1;
     }
     
-    .system-number {
-        font-size: 0.75rem;
+    .system-card-description {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: var(--space-4);
     }
     
-    .tool-tags {
+    .system-card-tools {
+        display: flex;
         flex-wrap: wrap;
-        gap: var(--space-1);
+        gap: var(--space-2);
     }
     
-    .tool-tag {
+    .system-card-tool {
+        background: var(--muted-light);
+        color: var(--foreground);
+        padding: 4px 8px;
+        border-radius: 6px;
         font-size: 0.75rem;
-        padding: 2px 6px;
+        font-weight: 500;
     }
     
     /* Prevent layout shifts on mobile */
