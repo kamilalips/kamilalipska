@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
 :root {
     /* Vercel Colors with Magenta Accent */
     --background: #fafafa;
@@ -1627,6 +1632,52 @@ body {
     
     .section-title {
         font-size: 2rem;
+    }
+    
+    /* Fix mobile table display */
+    .systems-table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 150px 200px 120px;
+        min-width: 470px;
+        font-size: 0.875rem;
+    }
+    
+    .table-cell {
+        padding: var(--space-3);
+    }
+    
+    .system-number {
+        font-size: 0.75rem;
+    }
+    
+    .tool-tags {
+        flex-wrap: wrap;
+        gap: var(--space-1);
+    }
+    
+    .tool-tag {
+        font-size: 0.75rem;
+        padding: 2px 6px;
+    }
+    
+    /* Prevent layout shifts on mobile */
+    .section {
+        scroll-margin-top: 100px;
+    }
+    
+    /* Improve mobile spacing */
+    .systems {
+        padding: var(--space-12) 0;
+    }
+    
+    .systems-container {
+        padding: 0 var(--space-4);
     }
 }
 
