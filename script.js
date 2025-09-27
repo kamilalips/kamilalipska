@@ -381,7 +381,7 @@ class AnimationToggle {
             }
             
             this.currentAnimation = 1;
-            this.updateToggleText('Is your screen dirty? ;) <span class="click-hint">click to change animation</span>');
+            this.updateToggleText('Clean screen! ;) <span class="click-hint">click to change animation</span>');
         }
     }
     
