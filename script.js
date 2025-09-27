@@ -368,7 +368,7 @@ class AnimationToggle {
             }
             
             this.currentAnimation = 2;
-            this.updateToggleText('Clean screen! ;) <span class="click-hint">click to change animation</span>');
+            this.updateToggleText('Is your screen dirty? ;) <span class="click-hint">click to change animation</span>');
         } else {
             // Switch to animation 1 (original grey dots)
             if (this.animation2) this.animation2.style.opacity = '0';
