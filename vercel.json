@@ -29,6 +29,14 @@
       "destination": "/api/insight?slug=:slug"
     },
     {
+      "source": "/insights/:slug.html",
+      "destination": "/api/insight?slug=:slug"
+    },
+    {
+      "source": "/insights/index.html",
+      "destination": "/insights.html"
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/api/sitemap.xml.js"
     },

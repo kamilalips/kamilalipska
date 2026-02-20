@@ -1,6 +1,7 @@
 import { getPublishedArticles, SITE_URL, xmlEscape } from "../lib/content-source.js";
 
 function sanitizeHttpUrl(value, fallback) {
+  if (!value) return fallback;
   try {
     const url = new URL(value);
     if (url.protocol === "http:" || url.protocol === "https:") return url.toString();
@@ -18,7 +19,7 @@ function renderInsightPage(post) {
   const publishedDate = post.publishedAt ? new Date(post.publishedAt).toISOString() : new Date().toISOString();
   const image = sanitizeHttpUrl(post.image, `${SITE_URL}/avatar.svg`);
   const emoji = xmlEscape(post.emoji || "📝");
-  const sourceUrl = sanitizeHttpUrl(post.sourceUrl, canonicalUrl);
+  const sourceUrl = sanitizeHttpUrl(post.sourceUrl, "");
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -140,7 +141,7 @@ function renderInsightPage(post) {
       <p class="insight-meta">Published: ${new Date(publishedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
       <div class="insight-actions">
         <a class="btn btn-outline" href="/insights">Browse all insights</a>
-        <a class="btn btn-primary" href="${xmlEscape(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read full article</a>
+        ${sourceUrl ? `<a class="btn btn-primary" href="${xmlEscape(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read full article</a>` : ""}
       </div>
     </article>
   </main>
