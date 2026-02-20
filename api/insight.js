@@ -73,8 +73,6 @@ function renderInsightPage(post) {
     body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     .insight-page { margin-top: 110px; padding: 0 20px 72px; }
     .insight-wrap { max-width: 860px; margin: 0 auto; }
-    .insight-header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .insight-back-link { font-size: 0.9rem; text-decoration: none; color: #5b259f; font-weight: 500; }
     .insight-cover { margin-bottom: 18px; border-radius: 12px; overflow: hidden; }
     .insight-cover img { width: 100%; height: 280px; object-fit: cover; display: block; background: #fafafa; }
     .insight-cover-placeholder { display: none; align-items: center; justify-content: center; height: 280px; font-size: 2.5rem; background: linear-gradient(135deg, #f5ecff, #eadcff); color: #5b259f; }
@@ -98,6 +96,7 @@ function renderInsightPage(post) {
         <span class="logo-text">Kamila Lipska</span>
       </a>
       <nav class="header-nav">
+        <a href="/" class="nav-link">Home</a>
         <a href="/#about" class="nav-link">About</a>
         <a href="/#services" class="nav-link">Core Competencies</a>
         <a href="/#systems" class="nav-link">Systems</a>
@@ -115,6 +114,7 @@ function renderInsightPage(post) {
         <span class="hamburger-line"></span>
       </button>
       <nav class="mobile-nav" id="mobileNav">
+        <a href="/" class="mobile-nav-link">Home</a>
         <a href="/#about" class="mobile-nav-link">About</a>
         <a href="/#services" class="mobile-nav-link">Core Competencies</a>
         <a href="/#systems" class="mobile-nav-link">Systems</a>
@@ -129,9 +129,6 @@ function renderInsightPage(post) {
 
   <main class="insight-page">
     <article class="insight-wrap">
-      <div class="insight-header-row">
-        <a class="insight-back-link" href="/insights">← Back to Insights</a>
-      </div>
       <a class="insight-category" href="/insights?category=${encodeURIComponent(post.category || "Growth Strategy")}">${category}</a>
       <h1 class="insight-title">${title}</h1>
       <div class="insight-cover">

@@ -1224,6 +1224,9 @@ body {
     padding: var(--space-6);
     transition: all 0.2s ease;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
 }
 
 .blog-image {
@@ -1293,6 +1296,8 @@ body {
     font-weight: 500;
     font-size: 0.875rem;
     transition: color 0.2s ease;
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .blog-link:hover {

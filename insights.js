@@ -2,7 +2,6 @@ class InsightsPage {
   constructor() {
     this.filtersContainer = document.getElementById("insightsFilters");
     this.gridContainer = document.getElementById("insightsGrid");
-    this.resultsSummary = document.getElementById("insightsResultsSummary");
     this.posts = [];
     this.activeCategory = "all";
   }
@@ -11,7 +10,11 @@ class InsightsPage {
     try {
       const response = await fetch("/api/blog-posts");
       if (!response.ok) throw new Error("Failed to load posts");
-      this.posts = await response.json();
+      const rawPosts = await response.json();
+      this.posts = (rawPosts || []).map((post) => ({
+        ...post,
+        category: this.normalizeCategory(post),
+      }));
       this.applyInitialCategoryFromUrl();
       this.renderFilters();
       this.renderPosts();
@@ -64,7 +67,6 @@ class InsightsPage {
         : this.posts.filter((post) => post.category === this.activeCategory);
 
     this.gridContainer.innerHTML = "";
-    this.updateResultsSummary(visible.length);
 
     if (visible.length === 0) {
       this.gridContainer.innerHTML = `
@@ -105,12 +107,6 @@ class InsightsPage {
     });
   }
 
-  updateResultsSummary(count) {
-    if (!this.resultsSummary) return;
-    const label = this.activeCategory === "all" ? "all categories" : this.activeCategory;
-    this.resultsSummary.textContent = `${count} insight${count === 1 ? "" : "s"} in ${label}`;
-  }
-
   formatExcerpt(value = "") {
     const cleaned = value
       .replace(/[\u0000-\u001F\u007F-\u009F]/g, " ")
@@ -132,9 +128,42 @@ class InsightsPage {
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
   }
+
+  normalizeCategory(post = {}) {
+    if (post.category && String(post.category).trim()) return String(post.category).trim();
+
+    const signals = `${post.primaryKeyword || ""} ${post.title || ""}`.toLowerCase();
+    if (signals.includes("ai") || signals.includes("llm") || signals.includes("automation")) return "AI & Automation";
+    if (signals.includes("seo") || signals.includes("content") || signals.includes("serp")) return "SEO & Content";
+    if (signals.includes("data") || signals.includes("attribution") || signals.includes("tracking")) return "Data & Attribution";
+    if (signals.includes("web3") || signals.includes("crypto") || signals.includes("blockchain")) return "Web3 Growth";
+    if (signals.includes("saas") || signals.includes("b2b") || signals.includes("product")) return "SaaS Growth";
+    return "Growth Strategy";
+  }
+}
+
+function initMobileMenu() {
+  const menuToggle = document.getElementById("mobileMenuToggle");
+  const mobileNav = document.getElementById("mobileNav");
+  if (!menuToggle || !mobileNav) return;
+
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    document.body.style.overflow = mobileNav.classList.contains("active") ? "hidden" : "";
+  });
+
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      mobileNav.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initMobileMenu();
   const page = new InsightsPage();
   page.init();
 });
