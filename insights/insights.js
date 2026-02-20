@@ -6,10 +6,16 @@ async function fetchJson(url) {
 
 function card(post, external = false) {
   const article = document.createElement('article');
-  article.className = 'insight-card';
+  article.className = 'blog-card';
   const href = external ? post.url : `/insights/${post.slug}.html`;
   const target = external ? ' target="_blank" rel="noopener"' : '';
+  const image = post.image || '';
+  const emoji = post.emoji || '📈';
   article.innerHTML = `
+    <div class="blog-image">
+      <img src="${image}" alt="${post.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="blog-image-placeholder" style="${image ? 'display:none;' : 'display:flex;'}">${emoji}</div>
+    </div>
     <h3>${post.title}</h3>
     <div class="insight-meta">${(post.date || '').slice(0, 10)}${post.primaryKeyword ? ` · ${post.primaryKeyword}` : ''}</div>
     <p>${post.excerpt || ''}</p>
@@ -23,14 +29,14 @@ async function loadNative() {
   try {
     const posts = await fetchJson('/insights/posts.json');
     if (!Array.isArray(posts) || posts.length === 0) {
-      container.innerHTML = '<p>No native insights published yet.</p>';
+      container.innerHTML = '<p>No insights published yet.</p>';
       return;
     }
     posts
       .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
       .forEach((post) => container.appendChild(card(post, false)));
   } catch {
-    container.innerHTML = '<p>Could not load native insights.</p>';
+    container.innerHTML = '<p>Could not load insights.</p>';
   }
 }
 
@@ -50,13 +56,15 @@ async function loadLegacy() {
             excerpt: post.excerpt,
             date: post.date,
             url: post.url,
+            image: post.image,
+            emoji: post.emoji || '📈',
           },
           true
         )
       );
     });
   } catch {
-    container.innerHTML = '<p>Could not load legacy references.</p>';
+    container.innerHTML = '<p>Could not load archive.</p>';
   }
 }
 

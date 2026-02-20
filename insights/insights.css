@@ -19,38 +19,12 @@
   padding: 16px 0 32px;
 }
 
-.section-note {
-  color: #6b7280;
-  margin-bottom: 16px;
-}
-
 .insights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-.insight-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 16px;
-  background: #fff;
-}
-
-.insight-card h3 {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin: 0 0 8px;
+  margin-top: 14px;
 }
 
 .insight-meta {
   font-size: 0.82rem;
   color: #6b7280;
   margin-bottom: 8px;
-}
-
-.insight-card p {
-  margin: 0 0 10px;
-  color: #374151;
-  font-size: 0.94rem;
 }
