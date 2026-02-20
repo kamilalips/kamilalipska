@@ -23,6 +23,38 @@
   margin-top: 14px;
 }
 
+.logo-home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.insights-grid .blog-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.insights-grid .blog-card .blog-image {
+  min-height: 180px;
+}
+
+.insights-grid .blog-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 96px;
+}
+
+.insights-grid .blog-card .blog-link {
+  margin-top: auto;
+  color: #e91e63;
+  font-weight: 600;
+}
+
+.insights-grid .blog-card .blog-link:hover {
+  color: #c2185b;
+}
+
 .insight-meta {
   font-size: 0.82rem;
   color: #6b7280;

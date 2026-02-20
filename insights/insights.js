@@ -19,7 +19,7 @@ function card(post, external = false) {
     <h3>${post.title}</h3>
     <div class="insight-meta">${(post.date || '').slice(0, 10)}${post.primaryKeyword ? ` · ${post.primaryKeyword}` : ''}</div>
     <p>${post.excerpt || ''}</p>
-    <a href="${href}"${target}>Read</a>
+    <a href="${href}"${target} class="blog-link">Read</a>
   `;
   return article;
 }
