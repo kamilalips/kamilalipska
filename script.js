@@ -2,7 +2,7 @@
 class BlogFetcher {
     constructor() {
         this.blogContainer = document.querySelector('.blog-grid');
-        this.cacheKey = 'crypto-mum-blog-cache';
+        this.cacheKey = 'crypto-mum-insights-cache';
         this.cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
     }
 

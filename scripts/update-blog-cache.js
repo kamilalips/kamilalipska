@@ -10,7 +10,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const BLOG_URL = 'https://crypto-mum.com/wp-json/wp/v2/posts?per_page=8&_embed=true';
+const TAG_LOOKUP_URL = 'https://www.crypto-mum.com/wp-json/wp/v2/tags?slug=growth-architect';
 const CACHE_FILE = path.join(__dirname, '../cache/blog-posts.json');
 
 // Ensure cache directory exists
@@ -19,9 +19,9 @@ if (!fs.existsSync(cacheDir)) {
     fs.mkdirSync(cacheDir, { recursive: true });
 }
 
-function fetchBlogPosts() {
+function fetchJson(url) {
     return new Promise((resolve, reject) => {
-        https.get(BLOG_URL, (response) => {
+        https.get(url, (response) => {
             let data = '';
             
             response.on('data', (chunk) => {
@@ -40,6 +40,16 @@ function fetchBlogPosts() {
             reject(error);
         });
     });
+}
+
+async function fetchBlogPosts() {
+    const tags = await fetchJson(TAG_LOOKUP_URL);
+    const tagId = tags?.[0]?.id;
+    if (!tagId) {
+        throw new Error('growth-architect tag not found');
+    }
+    const blogUrl = `https://www.crypto-mum.com/wp-json/wp/v2/posts?per_page=8&tags=${tagId}&_embed=true`;
+    return fetchJson(blogUrl);
 }
 
 function transformPosts(posts) {
