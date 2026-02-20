@@ -1,0 +1,25 @@
+---
+description: Enforce insights publishing format and visual consistency
+globs: **/{insights.html,insights.js,api/insight.js,api/blog-posts.js,lib/content-source.js}
+alwaysApply: false
+---
+
+# Insights Publishing Rule
+
+- Keep one reusable `category` per post; do not create one-off tags.
+- Every insights card must include:
+  - clickable category link to `/insights?category=<name>`
+  - image with fallback placeholder emoji
+  - title, short excerpt, and `Read insight` link
+- Keep crawler metadata in `<meta>` and JSON-LD only; do not print meta description as main body copy on detail pages.
+- Insight detail page must include:
+  - favicon links
+  - canonical URL
+  - robots `index, follow`
+  - `BlogPosting` schema
+  - visible cover image with on-error fallback
+- Use safe defaults when fields are missing:
+  - `image`: `/avatar.svg`
+  - `emoji`: `📝`
+  - `category`: `Growth Strategy`
+- Always preserve consistent visual hierarchy and spacing with existing site styles.

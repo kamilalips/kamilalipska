@@ -21,13 +21,19 @@
   <style>
     .insights-main { max-width: 1120px; margin: 120px auto 80px; padding: 0 20px; }
     .insights-header h1 { margin-bottom: 8px; }
-    .insights-header p { color: #5a5a5a; max-width: 760px; }
+    .insights-header p { color: #5a5a5a; max-width: 760px; line-height: 1.65; }
+    .insights-summary { margin-top: 6px; font-size: 0.95rem; color: #6b6f75; }
     .insights-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
     .insights-filter { border: 1px solid #ddd; background: white; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
     .insights-filter.active { border-color: #6a2dbf; color: #6a2dbf; background: #f6f0ff; }
     .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .insight-card { border: 1px solid #ececec; border-radius: 14px; padding: 20px; background: white; }
+    .insight-image-wrap { display: block; margin-bottom: 12px; position: relative; border-radius: 12px; overflow: hidden; text-decoration: none; }
+    .insight-image { width: 100%; height: 170px; object-fit: cover; display: block; background: #fafafa; }
+    .insight-image-placeholder { display: none; align-items: center; justify-content: center; height: 170px; font-size: 2rem; background: linear-gradient(135deg, #f5ecff, #eadcff); color: #5b259f; }
     .insight-category { display: inline-block; margin-bottom: 10px; font-size: 12px; font-weight: 600; border-radius: 999px; background: #f2ebff; padding: 5px 10px; color: #5b259f; text-decoration: none; }
+    .insight-card h2 { font-size: 1.12rem; line-height: 1.35; margin: 0 0 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .insight-card p { color: #555a60; margin: 0; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; min-height: 6.2em; }
     .insight-meta { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; color: #666; }
     .insight-read { font-weight: 600; text-decoration: none; }
   </style>
@@ -46,7 +52,8 @@
     <header class="insights-header">
       <p><a href="/">← Back to homepage</a></p>
       <h1>Insights</h1>
-      <p>Browse insights by category cluster. Each article is assigned to one reusable category for cleaner topic navigation and stronger SEO information architecture.</p>
+      <p>Practical growth insights on SEO, analytics, AI automation, lifecycle systems, and Web3/SaaS execution. Browse by category to explore the topics most relevant to your team.</p>
+      <p id="insightsResultsSummary" class="insights-summary">Loading insights...</p>
     </header>
 
     <section>
