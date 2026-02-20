@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const posts = await getPublishedArticles(500);
+    const posts = (await getPublishedArticles(500)).filter((post) => !post.isReference);
 
     const header = [
       "# Kamila Lipska - LLM Knowledge File",

@@ -2,8 +2,14 @@
 class BlogFetcher {
     constructor() {
         this.blogContainer = document.querySelector('.blog-grid');
-        this.cacheKey = 'crypto-mum-insights-cache-v2';
+        this.cacheKey = 'crypto-mum-insights-cache-v4';
         this.cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+    }
+
+    decodeHtmlEntities(value = '') {
+        const parser = document.createElement('textarea');
+        parser.innerHTML = value;
+        return parser.value;
     }
 
     deriveSlug(post = {}) {
@@ -99,19 +105,25 @@ class BlogFetcher {
             const article = document.createElement('article');
             article.className = 'blog-card';
             const slug = this.deriveSlug(post);
-            const detailUrl = slug ? `/insights/${slug}` : (post.sourceUrl || post.url || '/insights');
+            const isReference = Boolean(post.isReference) || /crypto-mum\.com/i.test(post.sourceUrl || '');
+            const detailUrl = isReference
+                ? (post.sourceUrl || post.url || '/insights')
+                : (slug ? `/insights/${slug}` : (post.sourceUrl || post.url || '/insights'));
+            const detailTarget = isReference ? ' target="_blank" rel="noopener noreferrer"' : '';
             const category = post.category || 'Growth Strategy';
             const categoryUrl = `/insights?category=${encodeURIComponent(category)}`;
+            const title = this.decodeHtmlEntities(post.title || '');
+            const excerpt = this.decodeHtmlEntities(post.excerpt || '');
             
             article.innerHTML = `
                 <div class="blog-image">
-                    <img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="${post.image}" alt="${title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="blog-image-placeholder" style="display: none;">${post.emoji}</div>
                 </div>
                 <a href="${categoryUrl}" class="blog-tag">${category}</a>
-                <h3>${post.title}</h3>
-                <p>${post.excerpt}</p>
-                <a href="${detailUrl}" class="blog-link">Read More</a>
+                <h3>${title}</h3>
+                <p>${excerpt}</p>
+                <a href="${detailUrl}"${detailTarget} class="blog-link">Read More</a>
             `;
             
             this.blogContainer.appendChild(article);

@@ -185,6 +185,11 @@ export default async function handler(req, res) {
       return res.status(404).send("Insight not found");
     }
 
+    // Legacy Crypto Mum references should resolve externally.
+    if (post.isReference && post.sourceUrl) {
+      return res.redirect(302, post.sourceUrl);
+    }
+
     const html = renderInsightPage(post);
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader("Cache-Control", "public, max-age=900, s-maxage=900, stale-while-revalidate=3600");

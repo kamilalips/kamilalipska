@@ -7,6 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const [staticUrls, posts] = await Promise.all([Promise.resolve(getStaticSiteUrls()), getPublishedArticles(500)]);
+    const internalPosts = posts.filter((post) => !post.isReference);
 
     const urls = [
       ...staticUrls.map((entry) => ({
@@ -15,7 +16,7 @@ export default async function handler(req, res) {
         priority: entry.priority,
         lastmod: new Date().toISOString(),
       })),
-      ...posts.map((post) => ({
+      ...internalPosts.map((post) => ({
         loc: post.url,
         changefreq: "weekly",
         priority: "0.8",

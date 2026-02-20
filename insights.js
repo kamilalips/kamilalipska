@@ -68,26 +68,20 @@ class InsightsPage {
 
     this.gridContainer.innerHTML = "";
 
-    if (visible.length === 0) {
-      this.gridContainer.innerHTML = `
-        <article class="insight-card">
-          <h2>No insights in this category yet</h2>
-          <p>Try another category or return to all insights.</p>
-        </article>
-      `;
-      return;
-    }
-
     visible.forEach((post) => {
       const card = document.createElement("article");
       card.className = "insight-card";
       const slug = this.deriveSlug(post);
-      const detailUrl = slug ? `/insights/${slug}` : (post.sourceUrl || post.url || "/insights");
+      const isReference = Boolean(post.isReference) || /crypto-mum\.com/i.test(post.sourceUrl || "");
+      const detailUrl = isReference
+        ? (post.sourceUrl || post.url || "/insights")
+        : (slug ? `/insights/${slug}` : (post.sourceUrl || post.url || "/insights"));
+      const detailTarget = isReference ? ` target="_blank" rel="noopener noreferrer"` : "";
       const categoryUrl = `/insights?category=${encodeURIComponent(post.category)}`;
       const image = post.image || "/avatar.svg";
       const emoji = post.emoji || "📝";
-      const title = this.escapeHtml(post.title || "Untitled insight");
-      const category = this.escapeHtml(post.category || "Growth Strategy");
+      const title = this.escapeHtml(this.decodeHtmlEntities(post.title || "Untitled insight"));
+      const category = this.escapeHtml(this.decodeHtmlEntities(post.category || "Growth Strategy"));
       const excerpt = this.escapeHtml(this.formatExcerpt(post.excerpt));
 
       card.innerHTML = `
@@ -100,16 +94,19 @@ class InsightsPage {
         <p>${excerpt}</p>
         <div class="insight-meta">
           <span>${new Date(post.publishedAt || Date.now()).toLocaleDateString()}</span>
-          <a class="insight-read" href="${detailUrl}">Read insight</a>
+          <a class="insight-read" href="${detailUrl}"${detailTarget}>Read insight</a>
         </div>
       `;
 
       this.gridContainer.appendChild(card);
     });
+
+    this.addPlaceholdersForThreeColumnLayout(visible.length);
   }
 
   formatExcerpt(value = "") {
-    const cleaned = value
+    const decoded = this.decodeHtmlEntities(value);
+    const cleaned = decoded
       .replace(/[\u0000-\u001F\u007F-\u009F]/g, " ")
       .replace(/\s+/g, " ")
       .trim();
@@ -119,6 +116,12 @@ class InsightsPage {
 
     const shortened = cleaned.slice(0, 177).trim();
     return `${shortened}...`;
+  }
+
+  decodeHtmlEntities(value = "") {
+    const parser = document.createElement("textarea");
+    parser.innerHTML = value;
+    return parser.value;
   }
 
   escapeHtml(value = "") {
@@ -156,6 +159,22 @@ class InsightsPage {
       .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
+  }
+
+  addPlaceholdersForThreeColumnLayout(currentCount) {
+    // Keep the desktop grid visually stable at 3 cards.
+    const target = currentCount >= 3 ? currentCount : 3;
+    const needed = Math.max(0, target - currentCount);
+
+    for (let i = 0; i < needed; i += 1) {
+      const placeholder = document.createElement("article");
+      placeholder.className = "insight-card placeholder";
+      placeholder.innerHTML = `
+        <h2>More insights coming soon</h2>
+        <p>This category will be expanded with new posts.</p>
+      `;
+      this.gridContainer.appendChild(placeholder);
+    }
   }
 }
 
