@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | Kamila Lipska</title>
+  <link rel="icon" type="image/svg+xml" href="avatar.svg">
+  <link rel="icon" type="image/png" href="avatar.svg">
+  <link rel="apple-touch-icon" href="avatar.svg">
+  <meta name="description" content="Category-based insights on growth systems, SEO, Web3, automation, and analytics by Kamila Lipska.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kamilalipska.com/insights">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Insights | Kamila Lipska">
+  <meta property="og:description" content="Explore topic clusters and filter insights by category.">
+  <meta property="og:url" content="https://kamilalipska.com/insights">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insights | Kamila Lipska">
+  <meta name="twitter:description" content="Explore topic clusters and filter insights by category.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .insights-main { max-width: 1120px; margin: 120px auto 80px; padding: 0 20px; }
+    .insights-header h1 { margin-bottom: 8px; }
+    .insights-header p { color: #5a5a5a; max-width: 760px; }
+    .insights-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
+    .insights-filter { border: 1px solid #ddd; background: white; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    .insights-filter.active { border-color: #6a2dbf; color: #6a2dbf; background: #f6f0ff; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .insight-card { border: 1px solid #ececec; border-radius: 14px; padding: 20px; background: white; }
+    .insight-category { display: inline-block; margin-bottom: 10px; font-size: 12px; font-weight: 600; border-radius: 999px; background: #f2ebff; padding: 5px 10px; color: #5b259f; text-decoration: none; }
+    .insight-meta { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; color: #666; }
+    .insight-read { font-weight: 600; text-decoration: none; }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Insights",
+      "url": "https://kamilalipska.com/insights",
+      "description": "Clustered category archive of growth, SEO, automation, and analytics insights by Kamila Lipska."
+    }
+  </script>
+</head>
+<body>
+  <main class="insights-main">
+    <header class="insights-header">
+      <p><a href="/">← Back to homepage</a></p>
+      <h1>Insights</h1>
+      <p>Browse insights by category cluster. Each article is assigned to one reusable category for cleaner topic navigation and stronger SEO information architecture.</p>
+    </header>
+
+    <section>
+      <div id="insightsFilters" class="insights-filters" aria-label="Insight categories"></div>
+      <div id="insightsGrid" class="insights-grid"></div>
+    </section>
+  </main>
+
+  <script src="seo.js"></script>
+  <script src="insights.js"></script>
+</body>
+</html>

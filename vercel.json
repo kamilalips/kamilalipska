@@ -4,9 +4,38 @@
   "functions": {
     "api/blog-posts.js": {
       "maxDuration": 10
+    },
+    "api/sitemap.xml.js": {
+      "maxDuration": 10
+    },
+    "api/llms.txt.js": {
+      "maxDuration": 10
+    },
+    "api/insight.js": {
+      "maxDuration": 10
     }
   },
   "rewrites": [
+    {
+      "source": "/insights",
+      "destination": "/insights.html"
+    },
+    {
+      "source": "/isights",
+      "destination": "/insights.html"
+    },
+    {
+      "source": "/insights/:slug",
+      "destination": "/api/insight?slug=:slug"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap.xml.js"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/api/llms.txt.js"
+    },
     {
       "source": "/api/blog-posts",
       "destination": "/api/blog-posts.js"

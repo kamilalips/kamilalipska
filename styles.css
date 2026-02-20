@@ -1275,6 +1275,18 @@ body {
     margin-bottom: var(--space-4);
 }
 
+.blog-tag {
+    display: inline-block;
+    margin-bottom: var(--space-3);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(106, 45, 191, 0.12);
+    color: #5b259f;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 .blog-link {
     color: var(--magenta);
     text-decoration: none;

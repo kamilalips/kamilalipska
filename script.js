@@ -77,21 +77,25 @@ class BlogFetcher {
         
         this.blogContainer.innerHTML = '';
         
-        // Only show the last 6 posts
-        const recentPosts = posts.slice(-6);
+        // Show the most recent 6 posts
+        const recentPosts = posts.slice(0, 6);
         
         recentPosts.forEach(post => {
             const article = document.createElement('article');
             article.className = 'blog-card';
+            const detailUrl = `/insights/${post.slug}`;
+            const category = post.category || 'Growth Strategy';
+            const categoryUrl = `/insights?category=${encodeURIComponent(category)}`;
             
             article.innerHTML = `
                 <div class="blog-image">
                     <img src="${post.image}" alt="${post.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="blog-image-placeholder" style="display: none;">${post.emoji}</div>
                 </div>
+                <a href="${categoryUrl}" class="blog-tag">${category}</a>
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
-                <a href="${post.url}" class="blog-link" target="_blank">Read More</a>
+                <a href="${detailUrl}" class="blog-link">Read More</a>
             `;
             
             this.blogContainer.appendChild(article);
