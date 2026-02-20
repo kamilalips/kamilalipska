@@ -2,8 +2,23 @@
 class BlogFetcher {
     constructor() {
         this.blogContainer = document.querySelector('.blog-grid');
-        this.cacheKey = 'crypto-mum-insights-cache';
+        this.cacheKey = 'crypto-mum-insights-cache-v2';
         this.cacheExpiry = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+    }
+
+    deriveSlug(post = {}) {
+        if (post.slug && String(post.slug).trim()) return String(post.slug).trim();
+
+        const fromUrl = (post.url || '').match(/\/insights\/([^/?#]+)|\/blog\/([^/?#]+)/i);
+        const raw = fromUrl ? (fromUrl[1] || fromUrl[2] || '') : '';
+        if (raw) return raw.replace(/\.html$/i, '').trim();
+
+        const title = (post.title || '').toLowerCase().trim();
+        if (!title) return '';
+        return title
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
     }
 
     async fetchBlogPosts() {
@@ -83,7 +98,8 @@ class BlogFetcher {
         recentPosts.forEach(post => {
             const article = document.createElement('article');
             article.className = 'blog-card';
-            const detailUrl = `/insights/${post.slug}`;
+            const slug = this.deriveSlug(post);
+            const detailUrl = slug ? `/insights/${slug}` : (post.sourceUrl || post.url || '/insights');
             const category = post.category || 'Growth Strategy';
             const categoryUrl = `/insights?category=${encodeURIComponent(category)}`;
             

@@ -81,7 +81,8 @@ class InsightsPage {
     visible.forEach((post) => {
       const card = document.createElement("article");
       card.className = "insight-card";
-      const detailUrl = `/insights/${post.slug}`;
+      const slug = this.deriveSlug(post);
+      const detailUrl = slug ? `/insights/${slug}` : (post.sourceUrl || post.url || "/insights");
       const categoryUrl = `/insights?category=${encodeURIComponent(post.category)}`;
       const image = post.image || "/avatar.svg";
       const emoji = post.emoji || "📝";
@@ -139,6 +140,22 @@ class InsightsPage {
     if (signals.includes("web3") || signals.includes("crypto") || signals.includes("blockchain")) return "Web3 Growth";
     if (signals.includes("saas") || signals.includes("b2b") || signals.includes("product")) return "SaaS Growth";
     return "Growth Strategy";
+  }
+
+  deriveSlug(post = {}) {
+    if (post.slug && String(post.slug).trim()) return String(post.slug).trim();
+
+    const source = `${post.url || ""} ${post.sourceUrl || ""}`;
+    const match = source.match(/\/insights\/([^/?#]+)|\/blog\/([^/?#]+)/i);
+    const raw = match ? (match[1] || match[2] || "") : "";
+    if (raw) return raw.replace(/\.html$/i, "").trim();
+
+    const title = (post.title || "").toLowerCase().trim();
+    if (!title) return "";
+    return title
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
   }
 }
 
