@@ -1,4 +1,4 @@
-import { getPublishedArticles, SITE_URL, xmlEscape } from "../lib/content-source.js";
+import { getArticleBySlug, SITE_URL, xmlEscape } from "../lib/content-source.js";
 
 function sanitizeHttpUrl(value, fallback) {
   if (!value) return fallback;
@@ -11,57 +11,88 @@ function sanitizeHttpUrl(value, fallback) {
   }
 }
 
-function safeBodyHtml(contentHtml) {
+function normalizeForCompare(text) {
+  return (text || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isRedundantH2(h2InnerHtml, pageTitle) {
+  const stripTags = (s) => (s || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const a = normalizeForCompare(stripTags(h2InnerHtml));
+  const b = normalizeForCompare(pageTitle);
+  if (!a || !b) return false;
+  if (a === b) return true;
+  if (a.includes(b) || b.includes(a)) return true;
+  const aWords = a.split(/\s+/).filter((w) => w.length > 1);
+  const bWords = b.split(/\s+/).filter((w) => w.length > 1);
+  const overlap = aWords.filter((w) => bWords.includes(w)).length;
+  return overlap >= Math.min(3, aWords.length, bWords.length);
+}
+
+function safeBodyHtml(contentHtml, pageTitle) {
   if (!contentHtml || typeof contentHtml !== "string") return "";
-  return (
-    "<div class=\"insight-body\">" +
-    contentHtml.replace(/<\/script/gi, "<\\/script") +
-    "</div>"
-  );
+  let body = contentHtml.replace(/<\/script/gi, "<\\/script");
+  const h2Open = body.indexOf("<h2");
+  if (h2Open !== -1) {
+    const afterOpen = body.indexOf(">", h2Open) + 1;
+    const h2Close = body.indexOf("</h2>", afterOpen);
+    if (afterOpen > 0 && h2Close !== -1) {
+      const h2Text = body.slice(afterOpen, h2Close);
+      if (isRedundantH2(h2Text, pageTitle)) {
+        body = (body.slice(0, h2Open) + body.slice(h2Close + 5)).replace(/^\s+/, "");
+      }
+    }
+  }
+  return "<div class=\"insight-body\">" + body + "</div>";
 }
 
 function renderInsightPage(post) {
   const title = xmlEscape(post.title);
-  const description = xmlEscape(post.llmsDescription || post.excerpt || "");
+  const metaTitle = xmlEscape(post.metaTitle || post.title || "");
+  const metaDescription = xmlEscape(
+    post.metaDescription || post.llmsDescription || post.excerpt || ""
+  );
   const category = xmlEscape(post.category || "Growth Strategy");
   const canonicalUrl = `${SITE_URL}/insights/${post.slug}`;
   const publishedDate = post.publishedAt ? new Date(post.publishedAt).toISOString() : new Date().toISOString();
   const image = sanitizeHttpUrl(post.image, `${SITE_URL}/avatar.svg`);
   const emoji = xmlEscape(post.emoji || "📝");
   const sourceUrl = sanitizeHttpUrl(post.sourceUrl, "");
-  const bodyHtml = safeBodyHtml(post.contentHtml);
+  const bodyHtml = safeBodyHtml(post.contentHtml, post.title);
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${title} | Kamila Lipska Insights</title>
+  <title>${metaTitle && metaTitle.includes("|") ? metaTitle : (metaTitle ? metaTitle + " | Kamila Lipska Insights" : "Kamila Lipska Insights")}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/avatar.svg" />
   <link rel="icon" type="image/png" href="/avatar.svg" />
   <link rel="apple-touch-icon" href="/avatar.svg" />
-  <meta name="description" content="${description}" />
+  <meta name="description" content="${metaDescription}" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${canonicalUrl}" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="${title}" />
-  <meta property="og:description" content="${description}" />
+  <meta property="og:title" content="${metaTitle}" />
+  <meta property="og:description" content="${metaDescription}" />
   <meta property="og:url" content="${canonicalUrl}" />
   <meta property="og:image" content="${xmlEscape(image)}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${title}" />
-  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:title" content="${metaTitle}" />
+  <meta name="twitter:description" content="${metaDescription}" />
   <meta name="twitter:image" content="${xmlEscape(image)}" />
   <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "${title}",
-    "description": "${description}",
+    "headline": "${metaTitle}",
+    "description": "${metaDescription}",
     "datePublished": "${publishedDate}",
     "dateModified": "${publishedDate}",
     "author": {
@@ -193,9 +224,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const posts = await getPublishedArticles(500);
-    const post = posts.find((item) => item.slug === slug);
-
+    const post = await getArticleBySlug(slug);
     if (!post) {
       return res.status(404).send("Insight not found");
     }
@@ -207,7 +236,7 @@ export default async function handler(req, res) {
 
     const html = renderInsightPage(post);
     res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=900, s-maxage=900, stale-while-revalidate=3600");
+    res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400");
     return res.status(200).send(html);
   } catch (error) {
     console.error("Error rendering insight page:", error);

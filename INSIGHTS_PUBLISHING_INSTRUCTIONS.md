@@ -54,6 +54,7 @@ Each post must include:
 Optional:
 - `primaryKeyword`
 - `image` (stable public image URL; avoid signed temporary URLs)
+- **Meta title / meta description (SEO):** In Notion use **Meta Title** (or **SEO Title**) and **Meta Description** (or **SEO Description**). In `posts.json` use `metaTitle` and `metaDescription`. When set, these are used for the page `<title>`, `<meta name="description">`, and Open Graph/Twitter cards; otherwise the post title and excerpt/LLMs description are used.
 
 ## 5) Category and tagging rules
 
