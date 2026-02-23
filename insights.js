@@ -169,10 +169,6 @@ class InsightsPage {
     for (let i = 0; i < needed; i += 1) {
       const placeholder = document.createElement("article");
       placeholder.className = "insight-card placeholder";
-      placeholder.innerHTML = `
-        <h2>More insights coming soon</h2>
-        <p>This category will be expanded with new posts.</p>
-      `;
       this.gridContainer.appendChild(placeholder);
     }
   }

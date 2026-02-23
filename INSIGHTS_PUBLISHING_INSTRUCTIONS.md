@@ -33,6 +33,7 @@ Optional:
 
 - One post = one category cluster.
 - Reuse category clusters; do not create one-off tags.
+- Reuse existing tags/categories only; do not invent new labels unless explicitly approved.
 - Current clusters are normalized automatically:
   - `AI & Automation`
   - `SEO & Content`
@@ -41,7 +42,20 @@ Optional:
   - `SaaS Growth`
   - `Growth Strategy`
 
-## 5) SEO rules (automatic, do not duplicate in visible text)
+## 5) Legacy reference content rules (Crypto Mum)
+
+- Imported Crypto Mum posts are **references**, not new native posts.
+- Keep their existing visual template and system styling; do not redesign cards/layout for legacy references.
+- Allowed edits for references:
+  - text cleanup (title/excerpt punctuation, encoding fixes)
+  - category/tag normalization using existing categories
+  - link corrections to the original Crypto Mum URL
+- Not allowed for references:
+  - custom visual redesign per post
+  - creating static HTML article files
+  - replacing shared components
+
+## 6) SEO rules (automatic, do not duplicate in visible text)
 
 Dynamic pages automatically include:
 - self-canonical URL
@@ -52,22 +66,24 @@ Dynamic pages automatically include:
 Important:
 - Do not print meta-description notes in the visible article body.
 
-## 6) Visual/content quality standards
+## 7) Visual/content quality standards
 
 - Keep headlines concise and specific.
 - Excerpts should be human-readable, not keyword-stuffed.
 - Use stable images only; if image fails, system falls back automatically.
 - Ensure content is scannable with headings (`h2`, `h3`) and short paragraphs.
+- For publishing updates, change text/content fields only unless a visual change was explicitly requested.
 
-## 7) QA checklist before publish
+## 8) QA checklist before publish
 
 - URL opens at `/insights/{slug}` without errors.
 - Post appears on `/insights` listing.
 - Category chip is clickable and filters correctly.
 - Mobile view works (menu, spacing, typography, image).
 - `sitemap.xml` and `llms.txt` include the post after publish.
+- For legacy references, clicking `Read` opens the external Crypto Mum article.
 
-## 8) Example `insights/posts.json` entry
+## 9) Example `insights/posts.json` entry
 
 ```json
 {
