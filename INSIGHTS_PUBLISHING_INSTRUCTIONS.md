@@ -2,14 +2,37 @@
 
 Use this guide when publishing any new insight on `kamilalipska.com`.
 
-## 1) Publishing rule (mandatory)
+## 1) Deployment process (one deployment per new native insight)
+
+For **every** new native insight (not legacy references), follow this so the post appears on the site, sitemap, and llms.txt:
+
+1. **Add the post to the source of truth**
+   - **Notion:** Set `Unified Status` = `Published`, `Destination website` = `kamilalipska.com`, and fill Slug, Title, Excerpt, etc.  
+   - **Or local:** Add a full entry to `insights/posts.json` (see section 9). **Mandatory:** include `"unifiedStatus": "Published"` or the post will not be published.
+
+2. **If using `insights/posts.json`**
+   - Append one new object to the `posts.json` array with all required fields and `unifiedStatus: "Published"`.
+   - Run validation before pushing: `npm run validate-insights` (see section 10).
+
+3. **Single commit per new post (recommended)**
+   - Commit message pattern: `content: add insight <slug>` or `content: update insights index <slug>`.
+   - Push to trigger deployment. One deployment per new post keeps the deployment list clear and avoids missing a post.
+
+4. **Verify after deploy**
+   - Post appears on `/insights`.
+   - `/insights/{slug}` opens without error.
+   - Post is included in `/sitemap.xml` and `/llms.txt`.
+
+If a new post does not appear, check: (a) `unifiedStatus` is exactly `"Published"` for local posts, or (b) Notion row has `Unified Status` = Published and Destination = kamilalipska.com, and Notion env vars are set.
+
+## 2) Publishing rule (mandatory)
 
 - Do **not** create static files like `insights/some-post.html`.
 - All posts are rendered dynamically at:
   - `/insights/{slug}`
   - legacy links `/insights/{slug}.html` also resolve dynamically
 
-## 2) Where to publish content
+## 3) Where to publish content
 
 Preferred source of truth:
 - Notion database:
@@ -20,7 +43,7 @@ Fallback/local source:
 - `insights/posts.json`
 - For local posts, include `unifiedStatus: "Published"` or the post will not be published.
 
-## 3) Required post fields
+## 4) Required post fields
 
 Each post must include:
 - `slug` (kebab-case, unique)
@@ -32,7 +55,7 @@ Optional:
 - `primaryKeyword`
 - `image` (stable public image URL; avoid signed temporary URLs)
 
-## 4) Category and tagging rules
+## 5) Category and tagging rules
 
 - One post = one category cluster.
 - Reuse category clusters; do not create one-off tags.
@@ -45,7 +68,7 @@ Optional:
   - `SaaS Growth`
   - `Growth Strategy`
 
-## 5) Legacy reference content rules (Crypto Mum)
+## 6) Legacy reference content rules (Crypto Mum)
 
 - Imported Crypto Mum posts are **references**, not new native posts.
 - Keep their existing visual template and system styling; do not redesign cards/layout for legacy references.
@@ -58,7 +81,7 @@ Optional:
   - creating static HTML article files
   - replacing shared components
 
-## 6) SEO rules (automatic, do not duplicate in visible text)
+## 7) SEO rules (automatic, do not duplicate in visible text)
 
 Dynamic pages automatically include:
 - self-canonical URL
@@ -69,7 +92,7 @@ Dynamic pages automatically include:
 Important:
 - Do not print meta-description notes in the visible article body.
 
-## 7) Visual/content quality standards
+## 8) Visual/content quality standards
 
 - Keep headlines concise and specific.
 - Excerpts should be human-readable, not keyword-stuffed.
@@ -77,7 +100,7 @@ Important:
 - Ensure content is scannable with headings (`h2`, `h3`) and short paragraphs.
 - For publishing updates, change text/content fields only unless a visual change was explicitly requested.
 
-## 8) QA checklist before publish
+## 9) QA checklist before publish
 
 - URL opens at `/insights/{slug}` without errors.
 - Post appears on `/insights` listing.
@@ -86,7 +109,9 @@ Important:
 - `sitemap.xml` and `llms.txt` include the post after publish.
 - For legacy references, clicking `Read` opens the external Crypto Mum article.
 
-## 9) Example `insights/posts.json` entry
+## 10) Example `insights/posts.json` entry
+
+**Always include `unifiedStatus: "Published"`** for local posts or they will not appear on the site.
 
 ```json
 {
@@ -95,6 +120,19 @@ Important:
   "excerpt": "A practical framework for prioritizing growth experiments across acquisition, activation, and retention.",
   "date": "2026-02-20T12:00:00.000Z",
   "primaryKeyword": "saas growth framework",
+  "unifiedStatus": "Published",
   "image": "https://your-cdn.com/images/example-growth-framework.png"
 }
 ```
+
+Optional for full article body on the detail page: `llmsDescription` (for meta/llms.txt), `contentHtml` (full article HTML).
+
+## 11) Validate before deploy
+
+Run before pushing when you changed `insights/posts.json`:
+
+```bash
+npm run validate-insights
+```
+
+This checks: required fields (slug, title, excerpt, date), no duplicate slugs, and warns about entries without `unifiedStatus: "Published"` (they will not be published).

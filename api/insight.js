@@ -11,6 +11,15 @@ function sanitizeHttpUrl(value, fallback) {
   }
 }
 
+function safeBodyHtml(contentHtml) {
+  if (!contentHtml || typeof contentHtml !== "string") return "";
+  return (
+    "<div class=\"insight-body\">" +
+    contentHtml.replace(/<\/script/gi, "<\\/script") +
+    "</div>"
+  );
+}
+
 function renderInsightPage(post) {
   const title = xmlEscape(post.title);
   const description = xmlEscape(post.llmsDescription || post.excerpt || "");
@@ -20,6 +29,7 @@ function renderInsightPage(post) {
   const image = sanitizeHttpUrl(post.image, `${SITE_URL}/avatar.svg`);
   const emoji = xmlEscape(post.emoji || "📝");
   const sourceUrl = sanitizeHttpUrl(post.sourceUrl, "");
+  const bodyHtml = safeBodyHtml(post.contentHtml);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -79,6 +89,10 @@ function renderInsightPage(post) {
     .insight-meta { color: #5b6168; font-size: 14px; margin-bottom: 18px; }
     .insight-category { display: inline-block; padding: 4px 10px; background: #f2ebff; border-radius: 999px; font-size: 12px; margin-bottom: 16px; color: #5b259f; text-decoration: none; }
     .insight-title { margin: 0 0 10px; line-height: 1.2; }
+    .insight-body { margin-top: 24px; line-height: 1.6; }
+    .insight-body h2 { margin: 1.5em 0 0.5em; font-size: 1.25rem; }
+    .insight-body h3 { margin: 1.25em 0 0.5em; font-size: 1.1rem; }
+    .insight-body p { margin: 0 0 0.75em; }
     .insight-actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
     .header-logo { text-decoration: none; }
     @media (max-width: 900px) {
@@ -136,6 +150,7 @@ function renderInsightPage(post) {
         <div class="insight-cover-placeholder">${emoji}</div>
       </div>
       <p class="insight-meta">Published: ${new Date(publishedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+      ${bodyHtml}
       <div class="insight-actions">
         <a class="btn btn-outline" href="/insights">Browse all insights</a>
         ${sourceUrl ? `<a class="btn btn-primary" href="${xmlEscape(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read full article</a>` : ""}
