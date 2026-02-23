@@ -12,10 +12,13 @@ Use this guide when publishing any new insight on `kamilalipska.com`.
 ## 2) Where to publish content
 
 Preferred source of truth:
-- Notion database (Stage = `Published`, Destination website contains `kamilalipska.com`)
+- Notion database:
+  - `Unified Status` must be exactly `Published`
+  - Destination website contains `kamilalipska.com`
 
 Fallback/local source:
 - `insights/posts.json`
+- For local posts, include `unifiedStatus: "Published"` or the post will not be published.
 
 ## 3) Required post fields
 
