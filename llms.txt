@@ -8,12 +8,3 @@
   Summary: Analyzes GEO and SEO strategies for B2B content teams in 2026, focusing on their integration, prioritization, and key metrics.
   Primary keyword: GEO vs SEO B2B 2026
 
-- Title: Optimizing B2B Content with Generative Engines
-  URL: https://kamilalipska.com/insights/optimizing-b2b-content-with-generative-engines
-  Summary: Explore entity architecture and retrieval formatting for enhancing B2B content systems through generative engine optimization.
-  Primary keyword: generative engine optimization strategy, GEO strategy.
-
-- Title: Attribution Frameworks for SaaS Teams in 2026
-  URL: https://kamilalipska.com/insights/attribution-frameworks-for-saas-teams-in-2026
-  Summary: Explore security-first attribution frameworks for SaaS, focusing on privacy, AI-driven analytics, and GDPR compliance.
-  Primary keyword: post cookie attribution framework
