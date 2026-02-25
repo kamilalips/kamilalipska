@@ -67,7 +67,7 @@ function renderInsightPage(post) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${metaTitle && metaTitle.includes("|") ? metaTitle : (metaTitle ? metaTitle + " | Kamila Lipska Insights" : "Kamila Lipska Insights")}</title>
+  <title>${metaTitle || "Kamila Lipska Insights"}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -87,6 +87,7 @@ function renderInsightPage(post) {
   <meta name="twitter:description" content="${metaDescription}" />
   <meta name="twitter:image" content="${xmlEscape(image)}" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="${xmlEscape(image)}" as="image" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -114,8 +115,8 @@ function renderInsightPage(post) {
     body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     .insight-page { margin-top: 110px; padding: 0 20px 72px; }
     .insight-wrap { max-width: 860px; margin: 0 auto; }
-    .insight-cover { margin-bottom: 18px; border-radius: 12px; overflow: hidden; }
-    .insight-cover img { width: 100%; height: 280px; object-fit: cover; display: block; background: #fafafa; }
+    .insight-cover { margin-bottom: 18px; border-radius: 12px; overflow: hidden; height: 280px; background: #fafafa; }
+    .insight-cover img { width: 100%; height: 280px; object-fit: cover; display: block; }
     .insight-cover-placeholder { display: none; align-items: center; justify-content: center; height: 280px; font-size: 2.5rem; background: linear-gradient(135deg, #f5ecff, #eadcff); color: #5b259f; }
     .insight-meta { color: #5b6168; font-size: 14px; margin-bottom: 18px; }
     .insight-category { display: inline-block; padding: 4px 10px; background: #f2ebff; border-radius: 999px; font-size: 12px; margin-bottom: 16px; color: #5b259f; text-decoration: none; }
@@ -124,6 +125,11 @@ function renderInsightPage(post) {
     .insight-body h2 { margin: 1.5em 0 0.5em; font-size: 1.25rem; }
     .insight-body h3 { margin: 1.25em 0 0.5em; font-size: 1.1rem; }
     .insight-body p { margin: 0 0 0.75em; }
+    .insight-body ul, .insight-body ol { margin: 0 0 0.75em; padding-left: 1.5em; list-style-position: inside; }
+    .insight-body li { margin: 0.25em 0; }
+    .insight-body li p { margin: 0.25em 0 0; }
+    .insight-body li p:first-child { margin-top: 0; }
+    .insight-body ul ul, .insight-body ol ol, .insight-body ul ol, .insight-body ol ul { margin: 0.25em 0; padding-left: 1.25em; }
     .insight-actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
     .header-logo { text-decoration: none; }
     @media (max-width: 900px) {
@@ -137,7 +143,7 @@ function renderInsightPage(post) {
   <header class="header">
     <div class="header-container">
       <a href="/" class="header-logo logo-home-link" aria-label="Go to homepage">
-        <img src="/avatar.svg" alt="Kamila Lipska" class="logo-image">
+        <img src="/avatar.svg" alt="Kamila Lipska" class="logo-image" width="32" height="32">
         <span class="logo-text">Kamila Lipska</span>
       </a>
       <nav class="header-nav">
@@ -176,8 +182,8 @@ function renderInsightPage(post) {
     <article class="insight-wrap">
       <a class="insight-category" href="/insights?category=${encodeURIComponent(post.category || "Growth Strategy")}">${category}</a>
       <h1 class="insight-title">${title}</h1>
-      <div class="insight-cover">
-        <img src="${xmlEscape(image)}" alt="${title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="insight-cover" style="position:relative">
+        <img src="${xmlEscape(image)}" alt="${title}" width="860" height="280" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="insight-cover-placeholder">${emoji}</div>
       </div>
       <p class="insight-meta">Published: ${new Date(publishedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
