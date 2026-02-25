@@ -3,12 +3,17 @@
 > Machine-readable summaries of published insights.
 
 ## Posts
+- Title: Measure Content ROI with Incrementality Testing
+  URL: https://www.kamilalipska.com/insights/measure-content-roi-with-incrementality-testing
+  Summary: Explore a detailed guide on incrementality testing for B2B content programs to measure true content ROI beyond last-touch attribution.
+  Primary keyword: content ROI incrementality testing
+
 - Title: Guide to Prompt Engineering for Marketing Content
-  URL: https://kamilalipska.com/insights/guide-to-prompt-engineering-for-marketing-content
+  URL: https://www.kamilalipska.com/insights/guide-to-prompt-engineering-for-marketing-content
   Summary: This guide explores prompt engineering for marketing, detailing system prompts, chain-of-thought techniques, and quality gate patterns to ensure brand consistency.
   Primary keyword: prompt engineering marketing content
 
 - Title: GEO vs SEO B2B 2026: Key Insights for Content Teams
-  URL: https://kamilalipska.com/insights/geo-vs-seo-b2b-2026-key-insights-for-content-teams
+  URL: https://www.kamilalipska.com/insights/geo-vs-seo-b2b-2026-key-insights-for-content-teams
   Summary: Analyzes GEO and SEO strategies for B2B content teams in 2026, focusing on their integration, prioritization, and key metrics.
   Primary keyword: GEO vs SEO B2B 2026
