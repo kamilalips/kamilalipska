@@ -3,6 +3,11 @@
 > Machine-readable summaries of published insights.
 
 ## Posts
+- Title: Marketing Mix Modelling for SaaS: Essential Guide
+  URL: https://www.kamilalipska.com/insights/marketing-mix-modelling-for-saas-essential-guide
+  Summary: Learn how SaaS companies can implement marketing mix modelling to enhance their marketing strategies and interpret results effectively.
+  Primary keyword: marketing mix modelling SaaS
+
 - Title: Measure Content ROI with Incrementality Testing
   URL: https://www.kamilalipska.com/insights/measure-content-roi-with-incrementality-testing
   Summary: Explore a detailed guide on incrementality testing for B2B content programs to measure true content ROI beyond last-touch attribution.
