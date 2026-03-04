@@ -3,6 +3,11 @@
 > Machine-readable summaries of published insights.
 
 ## Posts
+- Title: Crawl Log Analysis for Technical SEO Insights
+  URL: https://www.kamilalipska.com/insights/crawl-log-analysis-for-technical-seo-insights
+  Summary: Explore how crawl log analysis informs technical SEO decisions on coverage, budget, and priority using practical metrics and tools.
+  Primary keyword: crawl log analysis technical SEO
+
 - Title: Marketing Mix Modelling for SaaS: Essential Guide
   URL: https://www.kamilalipska.com/insights/marketing-mix-modelling-for-saas-essential-guide
   Summary: Learn how SaaS companies can implement marketing mix modelling to enhance their marketing strategies and interpret results effectively.
